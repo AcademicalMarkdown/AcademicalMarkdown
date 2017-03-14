@@ -1,6 +1,9 @@
-class CodeModel:
-    def __init__(self, label: str, syntax: str, caption: str,
-                 file: str = "", content: str = ""):
+from src.models.base_model import BaseModel
+
+
+class CodeModel(BaseModel):
+    def __init__(self, label: str, syntax: str, caption: str, file: str = "",
+                 content: str = ""):
         """
         this class defines the model for code block
         :param label: the label of the code for cross ref
@@ -9,6 +12,7 @@ class CodeModel:
         :param file: the file containing the code
         :param content: the actual code, cannot be used with file
         """
+        super().__init__()
         self.label = label
         self.syntax = syntax
         self.caption = caption

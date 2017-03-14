@@ -1,6 +1,9 @@
-class FigureModel:
-    def __init__(self, label: str, source: str, caption: str,
-                 width: str = '', height: str = ''):
+from src.models.base_model import BaseModel
+
+
+class FigureModel(BaseModel):
+    def __init__(self, label: str, source: str, caption: str, width: str = '',
+                 height: str = ''):
         """
         this class defines the model for figure block
         :param label: the label of the figure to cross ref
@@ -9,6 +12,7 @@ class FigureModel:
         :param width: the width of the image
         :param height: not recommended, recommend to use width
         """
+        super().__init__()
         self.label = label
         self.source = source
         self.caption = caption

@@ -1,6 +1,10 @@
-class TheoremModel:
+from src.models.base_model import BaseModel
+
+
+class TheoremModel(BaseModel):
     def __init__(self, label: str, content: str,
                  theorem_type: str = "theorem"):
+        super().__init__()
         self.label = label
         self.content = content
         self.theorem_type = theorem_type

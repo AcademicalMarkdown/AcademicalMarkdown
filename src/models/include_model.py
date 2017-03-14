@@ -1,9 +1,13 @@
-class IncludeModel:
+from src.models.base_model import BaseModel
+
+
+class IncludeModel(BaseModel):
     def __init__(self, file: str):
         """
         this is the class for include block model
         :param file: the name of the file to include
         """
+        super().__init__()
         self.file = file
 
     def load_dict(self, input_dict: dict):

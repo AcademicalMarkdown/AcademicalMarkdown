@@ -1,10 +1,14 @@
-class ConstantModel:
+from src.models.base_model import BaseModel
+
+
+class ConstantModel(BaseModel):
     def __init__(self, label: str, content: str):
         """
         this class defines the a model class for constant block
         :param label: the label of the constant to cross ref
         :param content: the content to replace
         """
+        super().__init__()
         self.label = label
         self.content = content
 
