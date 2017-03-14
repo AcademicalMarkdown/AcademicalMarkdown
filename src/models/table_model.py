@@ -6,7 +6,7 @@ class TableModel(BaseModel):
         super().__init__()
         self.file = ''
         self.content = ""
-        self.top_header = ""
+        self.top_header = True
         self.caption = ""
         self.label = ''
 
