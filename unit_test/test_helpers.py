@@ -1,5 +1,4 @@
 import src.helpers.general_function as gf
-from src.models.base_model import BaseModel
 from src.models.theroem_model import TheoremModel
 
 
@@ -13,7 +12,7 @@ class TestToKeywordPara:
                          "file": "filename.py",
                          "header": True}
         assert gf.positional_to_keyword_para(
-            model=BaseModel,
+            model=TheoremModel,
             paras=test_instance
         ) == test_instance
 
@@ -32,7 +31,7 @@ class TestToKeywordPara:
                       "header": True}
 
         assert gf.positional_to_keyword_para(
-            model=BaseModel,
+            model=TheoremModel,
             paras=test_instance
         ) == expect_res
 
