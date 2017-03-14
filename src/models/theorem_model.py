@@ -11,8 +11,8 @@ class TheoremModel(BaseModel):
         self.content = ''
         self.theorem_type = ''
 
-    def construct(self, label: str, content: str,
-                  theorem_type: str = "Theorem"):
+    def __construct__(self, label: str, content: str,
+                      theorem_type: str = "Theorem"):
         """
         this method fills the class in with data
         :param label: the label of the theorem for cross ref
@@ -29,7 +29,7 @@ class TheoremModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:

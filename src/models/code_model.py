@@ -13,8 +13,9 @@ class CodeModel(BaseModel):
         self.file = ""
         self.content = ""
 
-    def construct(self, label: str, syntax: str, caption: str, file: str = "",
-                  content: str = ""):
+    def __construct__(self, label: str, syntax: str, caption: str,
+                      file: str = "",
+                      content: str = ""):
         """
         this function puts value into the class
         :param label: the label of the code for cross ref
@@ -34,7 +35,7 @@ class CodeModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:

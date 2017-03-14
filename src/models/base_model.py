@@ -12,7 +12,7 @@ class BaseModel:
         """
         raise NotImplementedError
 
-    def construct(self, **karg):
+    def __construct__(self, **karg):
         """
         this function instead of __init__ constructs the class
         :param karg: all the parameter to send into the class

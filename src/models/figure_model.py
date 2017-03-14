@@ -13,8 +13,9 @@ class FigureModel(BaseModel):
         self.width = ""
         self.height = ""
 
-    def construct(self, label: str, source: str, caption: str, width: str = '',
-                  height: str = ''):
+    def __construct__(self, label: str, source: str, caption: str,
+                      width: str = '',
+                      height: str = ''):
         """
         this function is used to construct current class
         :param label: the label of the figure to cross ref
@@ -34,7 +35,7 @@ class FigureModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:

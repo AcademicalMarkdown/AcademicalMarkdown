@@ -10,7 +10,7 @@ class ConstantModel(BaseModel):
         self.label = ''
         self.content = ''
 
-    def construct(self, label: str, content: str):
+    def __construct__(self, label: str, content: str):
         """
         this class defines the a model class for constant block
         :param label: the label of the constant to cross ref
@@ -24,7 +24,7 @@ class ConstantModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:

@@ -9,7 +9,7 @@ class IncludeModel(BaseModel):
         super().__init__()
         self.file = ""
 
-    def construct(self, file: str):
+    def __construct__(self, file: str):
         """
         this function fills the value into the model
         :param file: the name of the file to include
@@ -21,7 +21,7 @@ class IncludeModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:

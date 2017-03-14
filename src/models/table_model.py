@@ -10,8 +10,8 @@ class TableModel(BaseModel):
         self.caption = ""
         self.label = ''
 
-    def construct(self, label: str, caption: str, top_header: bool = True,
-                  content: str = '', file: str = ''):
+    def __construct__(self, label: str, caption: str, top_header: bool = True,
+                      content: str = '', file: str = ''):
         """
         This method fill the class in with data
         :param label: the label for the table, used for cross ref
@@ -32,7 +32,7 @@ class TableModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.construct(**input_dict)
+        self.__construct__(**input_dict)
 
     @staticmethod
     def get_positional() -> list:
