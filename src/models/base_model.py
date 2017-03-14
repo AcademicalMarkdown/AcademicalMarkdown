@@ -10,7 +10,14 @@ class BaseModel:
         prototype to load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.__init__()
+        raise NotImplementedError
+
+    def construct(self, **karg):
+        """
+        this function instead of __init__ constructs the class
+        :param karg: all the parameter to send into the class
+        """
+        raise NotImplementedError
 
     @staticmethod
     def get_positional() -> list:
@@ -19,4 +26,4 @@ class BaseModel:
         this function returns the parameters that support positional parameter
         :return: empty list
         """
-        return []
+        raise NotImplementedError

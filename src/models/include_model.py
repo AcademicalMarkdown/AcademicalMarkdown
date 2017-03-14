@@ -2,12 +2,18 @@ from src.models.base_model import BaseModel
 
 
 class IncludeModel(BaseModel):
-    def __init__(self, file: str):
+    def __init__(self):
         """
         this is the class for include block model
-        :param file: the name of the file to include
         """
         super().__init__()
+        self.file = ""
+
+    def construct(self, file: str):
+        """
+        this function fills the value into the model
+        :param file: the name of the file to include
+        """
         self.file = file
 
     def load_dict(self, input_dict: dict):
@@ -15,7 +21,7 @@ class IncludeModel(BaseModel):
         load a dict to the class
         :param input_dict: the input dictionary
         """
-        self.__init__(**input_dict)
+        self.construct(**input_dict)
 
     @staticmethod
     def get_positional() -> list:
