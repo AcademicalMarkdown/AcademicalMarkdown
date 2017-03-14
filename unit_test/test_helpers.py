@@ -1,5 +1,5 @@
 import src.helpers.general_function as gf
-from src.models.theroem_model import TheoremModel
+from src.models.theorem_model import TheoremModel
 
 
 class TestToKeywordPara:
