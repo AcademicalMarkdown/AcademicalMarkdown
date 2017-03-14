@@ -3,7 +3,14 @@ from src.models.base_model import BaseModel
 
 class TheoremModel(BaseModel):
     def __init__(self, label: str, content: str,
-                 theorem_type: str = "theorem"):
+                 theorem_type: str = "Theorem"):
+        """
+        this class is the model for theorem block
+        :param label: the label of the theorem for cross ref
+        :param content: the content of the theorem
+        :param theorem_type: this is latex theorem type,
+                                typically takes on "Lemma", "Definition"...
+        """
         super().__init__()
         self.label = label
         self.content = content
