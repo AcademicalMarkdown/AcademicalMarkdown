@@ -236,7 +236,7 @@ class TestLoadDict:
 
         assert model.file == 'test.csv'
         assert model.content == '| | |'
-        assert model.top_header == True
+        assert model.top_header is True
         assert model.caption == 'this is a table'
         assert model.label == 'tbl: testTable'
 
