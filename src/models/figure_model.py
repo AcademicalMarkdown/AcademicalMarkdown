@@ -7,6 +7,7 @@ class FigureModel(BaseModel):
         this class defines the model for figure block
         """
         super().__init__()
+        self.code = ""
         self.label = ""
         self.source = ""
         self.caption = ""
@@ -14,8 +15,7 @@ class FigureModel(BaseModel):
         self.height = ""
 
     def __construct__(self, label: str, source: str, caption: str,
-                      width: str = '',
-                      height: str = ''):
+                      width: str = '', height: str = '', code: str = ''):
         """
         this function is used to construct current class
         :param label: the label of the figure to cross ref
@@ -29,6 +29,7 @@ class FigureModel(BaseModel):
         self.caption = caption
         self.width = width
         self.height = height
+        self.code = code
 
     def load_dict(self, input_dict: dict):
         """
@@ -43,4 +44,4 @@ class FigureModel(BaseModel):
         this function returns the parameters that support positional parameter
         :return: no parameter support positional
         """
-        return []
+        return ['code']
