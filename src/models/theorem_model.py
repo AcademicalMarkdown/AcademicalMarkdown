@@ -11,8 +11,8 @@ class TheoremModel(BaseModel):
         self.content = ''
         self.theorem_type = ''
 
-    def __construct__(self, label: str, content: str,
-                      theorem_type: str = "Theorem"):
+    def __construct__(self, content: str, theorem_type: str = "Theorem",
+                      label: str = ''):
         """
         this method fills the class in with data
         :param label: the label of the theorem for cross ref

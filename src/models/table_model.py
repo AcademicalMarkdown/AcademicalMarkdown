@@ -10,8 +10,8 @@ class TableModel(BaseModel):
         self.caption = ""
         self.label = ''
 
-    def __construct__(self, label: str, caption: str, top_header: bool = True,
-                      content: str = '', file: str = ''):
+    def __construct__(self, caption: str, top_header: bool = True,
+                      content: str = '', file: str = '', label: str = ''):
         """
         This method fill the class in with data
         :param label: the label for the table, used for cross ref

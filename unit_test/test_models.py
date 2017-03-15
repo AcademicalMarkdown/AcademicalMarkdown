@@ -26,7 +26,7 @@ code_test_dict = {'label': 'test_code',
                   'syntax': 'coq',
                   'caption': 'this is a test code',
                   'file': './test.v'}
-code_req_para = ['label', 'syntax', 'caption', 'file']
+code_req_para = ['syntax', 'caption', 'file']
 
 constant_test_dict = {'label': 'constant1',
                       'content': 'this is the test to '
@@ -39,7 +39,7 @@ figure_test_dict = {'label': 'fig:figid',
                     'width': '30',
                     'height': '20',
                     'code': 'plt.savefig(.\\test)'}
-figure_req_para = ['label', 'source', 'caption']
+figure_req_para = ['source', 'caption']
 
 include_test_dict = {'file': 'src/test.md'}
 include_req_para = ['file']
@@ -49,12 +49,12 @@ table_test_dict = {'file': 'test.csv',
                    'top_header': True,
                    'caption': 'this is a table',
                    'label': 'tbl: testTable'}
-table_req_para = ['top_header', 'caption', 'label']
+table_req_para = ['top_header', 'caption']
 
 theorem_test_dict = {'label': 'thm:maxwell eq',
                      'content': 'great theorem',
                      'theorem_type': 'Lemma'}
-theorem_req_para = ['label', 'content']
+theorem_req_para = ['content']
 
 
 class TestLoadDict:

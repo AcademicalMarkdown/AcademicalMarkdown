@@ -14,8 +14,8 @@ class FigureModel(BaseModel):
         self.width = ""
         self.height = ""
 
-    def __construct__(self, label: str, source: str, caption: str,
-                      width: str = '', height: str = '', code: str = ''):
+    def __construct__(self, source: str, caption: str, width: str = '',
+                      height: str = '', code: str = '', label: str = ''):
         """
         this function is used to construct current class
         :param code: the code to exec will compile,

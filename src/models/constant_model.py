@@ -10,7 +10,7 @@ class ConstantModel(BaseModel):
         self.label = ''
         self.content = ''
 
-    def __construct__(self, label: str, content: str):
+    def __construct__(self, content: str, label: str = ''):
         """
         this class defines the a model class for constant block
         :param label: the label of the constant to cross ref
