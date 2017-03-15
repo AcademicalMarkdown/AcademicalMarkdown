@@ -18,6 +18,8 @@ class FigureModel(BaseModel):
                       width: str = '', height: str = '', code: str = ''):
         """
         this function is used to construct current class
+        :param code: the code to exec will compile,
+                        you can use this to generate the figure you want to use
         :param label: the label of the figure to cross ref
         :param source: the image source, can be both web and local
         :param caption: the caption of current figure
