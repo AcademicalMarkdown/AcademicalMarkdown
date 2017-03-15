@@ -7,6 +7,10 @@ from src.models.figure_model import FigureModel
 
 class FigureCompilerLatex(FigureModel, BaseCompiler):
     def compile(self) -> str:
+        """
+        this function compile the class into string format
+        :return: a pandoc image string (something like this `![]()`)
+        """
         width_str = LATEX_FIG_WIDTH_FORMAT.format(width=self.width) \
             if self.width else ""
         height_str = LATEX_FIG_HEIGHT_FORMAT.format(height=self.height) \
