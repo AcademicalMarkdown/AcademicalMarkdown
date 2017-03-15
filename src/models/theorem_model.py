@@ -24,13 +24,6 @@ class TheoremModel(BaseModel):
         self.content = content
         self.theorem_type = theorem_type
 
-    def load_dict(self, input_dict: dict):
-        """
-        load a dict to the class
-        :param input_dict: the input dictionary
-        """
-        self.__construct__(**input_dict)
-
     @staticmethod
     def get_positional() -> list:
         """

@@ -27,13 +27,6 @@ class TableModel(BaseModel):
         self.caption = caption
         self.label = label
 
-    def load_dict(self, input_dict: dict):
-        """
-        load a dict to the class
-        :param input_dict: the input dictionary
-        """
-        self.__construct__(**input_dict)
-
     @staticmethod
     def get_positional() -> list:
         """

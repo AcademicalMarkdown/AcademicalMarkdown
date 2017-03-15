@@ -10,7 +10,7 @@ class BaseModel:
         prototype to load a dict to the class
         :param input_dict: the input dictionary
         """
-        raise NotImplementedError
+        self.__construct__(**input_dict)
 
     def __construct__(self, **karg):
         """
