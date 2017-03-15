@@ -38,4 +38,4 @@ class TheoremModel(BaseModel):
         :return: content is the first positional
                     theorem_type is the second positional parameter
         """
-        return ["content", "theorem_type"]
+        return ["content"]
