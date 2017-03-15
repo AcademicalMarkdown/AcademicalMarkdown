@@ -11,6 +11,9 @@ class FigureCompilerLatex(FigureModel, BaseCompiler):
         this function compile the class into string format
         :return: a pandoc image string (something like this `![]()`)
         """
+
+        # add data to key words, to make them valid parameters
+        # see constants for more
         width_str = LATEX_FIG_WIDTH_FORMAT.format(width=self.width) \
             if self.width else ""
         height_str = LATEX_FIG_HEIGHT_FORMAT.format(height=self.height) \
@@ -18,6 +21,7 @@ class FigureCompilerLatex(FigureModel, BaseCompiler):
         label_str = LATEX_FIG_LABEL_FORMAT.format(label=self.label) \
             if self.label else ""
 
+        # valid pandoc figure syntax, see constants for more
         return LATEX_FIGURE_FORMAT_STR.format(
             caption=self.caption,
             source=self.source,
