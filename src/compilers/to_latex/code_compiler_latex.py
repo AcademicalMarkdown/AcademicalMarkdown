@@ -1,8 +1,8 @@
 import codecs
 
 from src.compilers.base_compiler import BaseCompiler
-from src.helpers.constants import LATEX_CODE_FORMAT_STR, LEFT_BRACKET, \
-    RIGHT_BRACKET, LATEX_CODE_LABEL_FORMAT
+from src.helpers.constants import LATEX_CODE_FORMAT_STR, \
+    LATEX_CODE_LABEL_FORMAT
 from src.models.code_model import CodeModel
 
 
@@ -28,7 +28,5 @@ class CodeCompilerLatex(CodeModel, BaseCompiler):
             syntax=self.syntax,
             caption=self.caption,
             label=label_str,
-            content=self.content,
-            left_bracket=LEFT_BRACKET,
-            right_bracket=RIGHT_BRACKET
+            content=self.content
         )

@@ -14,7 +14,7 @@ class TestLatexCodeCompiler:
             input_dict=code_test_dict_with_file
         )
         exp_res = '''
-~~~~{.python caption="this is a test code" label=test_code}
+~~~~{ .python caption="this is a test code" label=test_code }
 def resource():
     return "this file is used for testing"
 
@@ -33,7 +33,7 @@ class TestLatexFigCompiler:
             input_dict=figure_test_dict
         )
         exp_res = "![this is a image](./image/git.png)" \
-                  "{#fig:figid width=30 height=20}"
+                  "{ #fig:figid width=30 height=20 }"
         assert fig_latex_compiler.compile() == exp_res
 
 

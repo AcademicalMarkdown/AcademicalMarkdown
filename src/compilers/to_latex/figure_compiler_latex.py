@@ -1,7 +1,6 @@
 from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_FIG_HEIGHT_FORMAT, \
-    LATEX_FIG_WIDTH_FORMAT, LATEX_FIG_LABEL_FORMAT, LATEX_FIGURE_FORMAT_STR, \
-    LEFT_BRACKET, RIGHT_BRACKET
+    LATEX_FIG_WIDTH_FORMAT, LATEX_FIG_LABEL_FORMAT, LATEX_FIGURE_FORMAT_STR
 from src.models.figure_model import FigureModel
 
 
@@ -25,8 +24,6 @@ class FigureCompilerLatex(FigureModel, BaseCompiler):
         return LATEX_FIGURE_FORMAT_STR.format(
             caption=self.caption,
             source=self.source,
-            left_bracket=LEFT_BRACKET,
-            right_bracket=RIGHT_BRACKET,
             label=label_str,
             width=width_str,
             height=height_str
