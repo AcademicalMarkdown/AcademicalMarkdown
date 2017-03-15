@@ -26,3 +26,10 @@ print(resource())
 
 
 class TestLatexFigCompiler:
+    def test_figure_with_everything(self):
+        fig_latex_compiler.load_dict(
+            input_dict=figure_test_dict
+        )
+        exp_res = "![this is a image](./image/git.png)" \
+                  "{#fig:figid width=30 height=20}"
+        assert fig_latex_compiler.compile() == exp_res

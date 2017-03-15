@@ -29,7 +29,7 @@ figure_test_dict = {'label': 'fig:figid',
                     'caption': 'this is a image',
                     'width': '30',
                     'height': '20',
-                    'code': 'plt.savefig(.\\test)'}
+                    'code': 'pass'}
 figure_req_para = ['source', 'caption']
 
 include_test_dict = {'file': 'src/test.md'}
