@@ -1,60 +1,7 @@
-import random
-from typing import List
-
 from src.models import code_model, constant_model, figure_model, \
     include_model, table_model, theorem_model
-
-
-def remove_one_para(para_dict: dict, require_para_list: list) -> (dict, str):
-    removed_para = random.choice(require_para_list)
-    del para_dict[removed_para]
-    return para_dict, removed_para
-
-
-def add_one_para(para_dict: dict, extra_para_list: List[dict]) -> (dict, str):
-    added_para = random.choice(extra_para_list)
-    para_dict.update(added_para)
-    return para_dict, list(added_para.keys())[0]
-
-
-other_para_list = [{'nuh': 'gosh'},
-                   {'not-in-list': 'no, no, no'},
-                   {'testing-no': 'ha ha ha lala'},
-                   {'definitely-no': 'hahaha'}]
-
-code_test_dict = {'label': 'test_code',
-                  'syntax': 'coq',
-                  'caption': 'this is a test code',
-                  'file': './test.v'}
-code_req_para = ['syntax', 'caption', 'file']
-
-constant_test_dict = {'label': 'constant1',
-                      'content': 'this is the test to '
-                                 'replace it with'}
-constant_req_para = ['label', 'content']
-
-figure_test_dict = {'label': 'fig:figid',
-                    'source': './image/git.png',
-                    'caption': 'this is a image',
-                    'width': '30',
-                    'height': '20',
-                    'code': 'plt.savefig(.\\test)'}
-figure_req_para = ['source', 'caption']
-
-include_test_dict = {'file': 'src/test.md'}
-include_req_para = ['file']
-
-table_test_dict = {'file': 'test.csv',
-                   'content': '| | |',
-                   'top_header': True,
-                   'caption': 'this is a table',
-                   'label': 'tbl: testTable'}
-table_req_para = ['top_header', 'caption']
-
-theorem_test_dict = {'label': 'thm:maxwell eq',
-                     'content': 'great theorem',
-                     'theorem_type': 'Lemma'}
-theorem_req_para = ['content']
+from unit_test.helpers.constants_for_test import *
+from unit_test.helpers.functions_for_test import *
 
 
 class TestLoadDict:
@@ -64,19 +11,19 @@ class TestLoadDict:
     def test_code_model(self):
         model = code_model.CodeModel()
         model.load_dict(
-            input_dict=code_test_dict
+            input_dict=code_test_dict_with_file
         )
 
         assert model.label == 'test_code'
-        assert model.syntax == 'coq'
+        assert model.syntax == 'python'
         assert model.caption == 'this is a test code'
-        assert model.file == './test.v'
+        assert model.file == './unit_test/resources/resource.py'
 
     def test_code_miss_para(self):
         model = code_model.CodeModel()
 
         miss_dict, miss_para = remove_one_para(
-            para_dict=code_test_dict,
+            para_dict=code_test_dict_with_file,
             require_para_list=code_req_para)
         try:
             model.load_dict(
@@ -89,7 +36,7 @@ class TestLoadDict:
     def test_code_more_para(self):
         model = code_model.CodeModel()
         extra_dict, extra_key = add_one_para(
-            para_dict=code_test_dict,
+            para_dict=code_test_dict_with_file,
             extra_para_list=other_para_list
         )
 
