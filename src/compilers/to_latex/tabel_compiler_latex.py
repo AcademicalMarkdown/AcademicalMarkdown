@@ -15,6 +15,7 @@ class TableCompilerLatex(TableModel, BaseCompiler):
         """
         get the content of csv file, returns a list of list (iterable)
         :param file_name: the name of the csv file
+                        Notice the CSV file is read via python default setting
         :return: the content of the csv file in list of list format
         """
         with codecs.open(file_name, encoding='utf-8') as f:
