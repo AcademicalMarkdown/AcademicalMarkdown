@@ -1,7 +1,7 @@
 # constants are invariant outside of this file.
 
 LATEX_CODE_FORMAT_STR = '''
-~~~~{left_bracket}.{syntax} caption="{caption}" label={label}{right_bracket}
+~~~~{left_bracket}.{syntax} caption="{caption}" label="{label}"{right_bracket}
 {content}
 ~~~~
 '''
