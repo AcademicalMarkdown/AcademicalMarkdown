@@ -21,6 +21,7 @@ class BaseCompiler(BaseModel):
 
     def load_yaml(self, input_yaml: str):
         """
+        [Deprecated]
         load the data in the yaml file into current model
         :param input_yaml:
         """
