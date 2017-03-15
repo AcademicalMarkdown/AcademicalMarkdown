@@ -179,11 +179,10 @@ class TestLoadDict:
     def test_table_model(self):
         model = table_model.TableModel()
         model.load_dict(
-            input_dict=table_test_dict
+            input_dict=table_test_dict_with_file
         )
 
-        assert model.file == 'test.csv'
-        assert model.content == '| | |'
+        assert model.file == './unit_test/resources/test.csv'
         assert model.top_header is True
         assert model.caption == 'this is a table'
         assert model.label == 'tbl: testTable'
@@ -192,7 +191,7 @@ class TestLoadDict:
         model = table_model.TableModel()
 
         miss_dict, miss_para = remove_one_para(
-            para_dict=table_test_dict,
+            para_dict=table_test_dict_with_file,
             require_para_list=table_req_para)
         try:
             model.load_dict(
@@ -205,7 +204,7 @@ class TestLoadDict:
     def test_table_more_para(self):
         model = table_model.TableModel()
         extra_dict, extra_key = add_one_para(
-            para_dict=table_test_dict,
+            para_dict=table_test_dict_with_file,
             extra_para_list=other_para_list
         )
 

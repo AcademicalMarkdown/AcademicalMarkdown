@@ -1,5 +1,6 @@
 # constants are invariant outside of this file.
 
+CSV_DELIMINATOR = ","
 # this is used for formatting due to python formatting will have an error
 # when you try to format "{{a}, {b}}" because of the outer brackets
 LEFT_BRACKET = '{'
@@ -22,3 +23,10 @@ LATEX_FIGURE_FORMAT_STR = \
 LATEX_FIG_WIDTH_FORMAT = "width={width}"
 LATEX_FIG_HEIGHT_FORMAT = "height={height}"
 LATEX_FIG_LABEL_FORMAT = "#{label}"
+
+# ======================== table compile section ==========================
+
+LATEX_TABLE_FORMAT_STR = """
+{content}
+
+: {caption} \label{{ {label} }}"""

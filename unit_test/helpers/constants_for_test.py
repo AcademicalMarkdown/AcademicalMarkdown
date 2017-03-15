@@ -35,11 +35,10 @@ figure_req_para = ['source', 'caption']
 include_test_dict = {'file': 'src/test.md'}
 include_req_para = ['file']
 
-table_test_dict = {'file': 'test.csv',
-                   'content': '| | |',
-                   'top_header': True,
-                   'caption': 'this is a table',
-                   'label': 'tbl: testTable'}
+table_test_dict_with_file = {'file': './unit_test/resources/test.csv',
+                             'top_header': True,
+                             'caption': 'this is a table',
+                             'label': 'tbl: testTable'}
 table_req_para = ['top_header', 'caption']
 
 theorem_test_dict = {'label': 'thm:maxwell eq',
