@@ -34,3 +34,7 @@ LATEX_THEOREM_FORMAT_STR = '''
 \\label{{{label}}}
 {content}
 \\end{{{theorem_type}}}'''
+
+# ======================= Error message Section ===========================
+DECODE_ERROR_MESSAGE_FORMAT = \
+    "cannot decode {filename} with utf-8 encodings"
