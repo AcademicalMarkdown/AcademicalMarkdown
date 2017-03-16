@@ -4,6 +4,7 @@ from src.models.base_model import BaseModel
 class ConstantModel(BaseModel):
     def __init__(self):
         """
+        [deprecated]
         this class defines the a model class for constant block
         """
         super().__init__()
