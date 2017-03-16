@@ -1,11 +1,11 @@
-# Markdown for Academia
+# Markdown for Academia   ![](./logos/logo_light_128x97.1.jpg)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bp7dlp49da0yijad/branch/master?svg=true)](https://ci.appveyor.com/project/chantisnake/markdown-for-academia/branch/master)
 [![Build Status](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia.svg?branch=master)](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia)
 [![](https://img.shields.io/aur/license/yaourt.svg)](LICENSE)
 ![](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)
 
-![](./logos/logo_light_128x97.1.jpg)
+
 realizing the dream to use markdown for academic writing.
 
 ## Inspiration
