@@ -1,9 +1,7 @@
 from typing import List
 
-from src.registers.common_register import CommonRegister
 
-
-class LatexRegister(CommonRegister):
+class LatexRegister:
     def __int__(self):
         """
         this is the all the global variable used in latex compiling
@@ -27,3 +25,7 @@ class LatexRegister(CommonRegister):
         :param new_theorem_type: the new theorem type
         """
         self.__theorem_types__.append(new_theorem_type)
+
+
+# create an instance of global register
+global_latex_register = LatexRegister()
