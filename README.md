@@ -5,7 +5,7 @@
 [![](https://img.shields.io/aur/license/yaourt.svg)](LICENSE)
 ![](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)
 
-<img src="https://raw.githubusercontent.com/MarkdownForAcademia/markdown_for_academia/master/logos/logo_light.svg" href="https://github.com/MarkdownForAcademia" width="48">
+![](./logos/logo_light_128x97.1.jpg)
 realizing the dream to use markdown for academic writing.
 
 ## Inspiration
