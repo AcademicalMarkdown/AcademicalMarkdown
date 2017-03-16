@@ -1,15 +1,15 @@
-from typing import List
+from typing import Set
 
 
 class LatexRegister:
-    def __int__(self):
+    def __init__(self):
         """
         this is the all the global variable used in latex compiling
         """
-        self.__theorem_types__ = []
+        self.__theorem_types__ = set()
 
     @property
-    def theorem_types(self) -> List[str]:
+    def theorem_types(self) -> Set[str]:
         """
         this gets the list of theorem type that has been registered
         if you want to change the theorem type, use `register_theorem_type`
@@ -24,7 +24,7 @@ class LatexRegister:
         add a new theorem type to the register
         :param new_theorem_type: the new theorem type
         """
-        self.__theorem_types__.append(new_theorem_type)
+        self.__theorem_types__.add(new_theorem_type)
 
 
 # create an instance of global register

@@ -69,4 +69,4 @@ great theorem
 \\end{Lemma}'''
 
         assert theorem_compiler.compile() == exp_res
-        assert global_latex_register.theorem_types == ['Lemma']
+        assert global_latex_register.theorem_types == {'Lemma'}
