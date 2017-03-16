@@ -25,4 +25,8 @@ class __CommonRegister__:
             self.__label_list__.add(new_label)
 
 
-global_common_register = __CommonRegister__()
+# see if global common_register is defined
+try:
+    global_common_register
+except NameError:
+    global_common_register = __CommonRegister__()

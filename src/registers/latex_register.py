@@ -28,4 +28,7 @@ class __LatexRegister__:
 
 
 # create an instance of global register
-global_latex_register = __LatexRegister__()
+try:
+    global_latex_register
+except NameError:
+    global_latex_register = __LatexRegister__()
