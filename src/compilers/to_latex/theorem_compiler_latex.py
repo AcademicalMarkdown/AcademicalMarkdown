@@ -8,7 +8,7 @@ class TheoremCompiler(TheoremModel, BaseCompiler):
     def compile(self) -> str:
         """
         return a pure latex theorem block
-        :return: a pure latex syntax
+        :return: a pure latex syntax theorem
         """
 
         # register the theorem type to register (for latex header)
