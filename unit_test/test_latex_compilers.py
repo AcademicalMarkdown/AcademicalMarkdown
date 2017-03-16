@@ -49,6 +49,6 @@ Hello     World
 lala     "haha"
 testing  2
 
-: this is a table \label{ tbl: testTable }'''
+: this is a table \label{tbl: testTable}'''
 
         assert table_latex_compiler.compile() == exp_res
