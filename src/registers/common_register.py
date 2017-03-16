@@ -4,4 +4,3 @@ class CommonRegister:
         this class is essentially global variables.
         """
         pass
-
