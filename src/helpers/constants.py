@@ -25,7 +25,7 @@ LATEX_FIG_LABEL_FORMAT = "#{label}"
 LATEX_TABLE_FORMAT_STR = """
 {content}
 
-: {caption} \label{{ {label} }}"""
+: {caption} \label{{{label}}}"""
 
 # ======================== theorem compile section ========================
 
