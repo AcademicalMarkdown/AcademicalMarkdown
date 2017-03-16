@@ -1,11 +1,14 @@
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.tabel_compiler_latex import TableCompilerLatex
+from src.compilers.to_latex.theorem_compiler_latex import TheoremCompiler
+from src.registers.latex_register import global_latex_register
 from unit_test.helpers.constants_for_test import *
 
 code_latex_compiler = CodeCompilerLatex()
 fig_latex_compiler = FigureCompilerLatex()
 table_latex_compiler = TableCompilerLatex()
+theorem_compiler = TheoremCompiler()
 
 
 class TestLatexCodeCompiler:
@@ -52,3 +55,18 @@ testing  2
 : this is a table \label{tbl: testTable}'''
 
         assert table_latex_compiler.compile() == exp_res
+
+
+class TestLatexTheoremCompiler:
+    def test_theorem(self):
+        theorem_compiler.load_dict(
+            input_dict=theorem_test_dict
+        )
+        exp_res = '''
+\\begin{Lemma}
+\\label{thm:maxwell eq}
+great theorem
+\\end{Lemma}'''
+
+        assert theorem_compiler.compile() == exp_res
+        assert global_latex_register.theorem_types == ['Lemma']
