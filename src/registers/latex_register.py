@@ -9,7 +9,7 @@ class LatexRegister:
         self.__theorem_types__ = []
 
     @property
-    def theorem_type(self) -> List[str]:
+    def theorem_types(self) -> List[str]:
         """
         this gets the list of theorem type that has been registered
         if you want to change the theorem type, use `register_theorem_type`
