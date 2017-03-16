@@ -36,6 +36,12 @@ LATEX_THEOREM_FORMAT_STR = '''
 {content}
 \\end{{{theorem_type}}}'''
 
+# ======================== ref compile section ===========================
+ORIG_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?[@{label}]"
+COMPILED_REF_REGEX_FORMAT = r"\1\\ref{{{label}}}"
+ORIG_PAGE_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?[p@{label}]"
+COMPILED_PAGE_REF_REGEX_FORMAT = r"\1\\pageref{{{label}}}"
+
 # ======================== main compiler section =========================
 YAML_BLOCK_REGEX = re.compile(r"""
                     ^           # match beginning of a line
@@ -57,8 +63,12 @@ YAML_BLOCK_STRIP_REGEX = re.compile(r"""
 
 YAML_BLOCK_STRIP_REPLACE_REGEX = "\\1"
 
-UNESCAPED_REPLACEMENT_LIST = [
-    ('\\\\', '\\'), ('\\%---', '%---'), ('\\---%', '---%')
+UNESCAPED_REGEX_SUB_LIST = [
+    ('\\%---', '%---'),  # escaped beginning block
+    ('\\---%', '---%'),  # escaped ending block
+    (r'(?:\\)(\\\\)*?\[@(.*)\]', r'\1[@\2]'),  # escaped ref labels
+    (r'(?:\\)(\\\\)*?\[p@(.*)\]', r'\1[p@\2]'),  # escaped page ref labels
+    ('\\\\', '\\'),
 ]
 
 # ======================= Error message Section ===========================
