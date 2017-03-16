@@ -1,7 +1,7 @@
 from typing import Set
 
 
-class LatexRegister:
+class __LatexRegister__:
     def __init__(self):
         """
         this is the all the global variable used in latex compiling
@@ -28,4 +28,4 @@ class LatexRegister:
 
 
 # create an instance of global register
-global_latex_register = LatexRegister()
+global_latex_register = __LatexRegister__()
