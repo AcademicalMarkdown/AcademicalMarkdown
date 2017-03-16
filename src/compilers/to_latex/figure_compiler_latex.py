@@ -2,6 +2,7 @@ from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_FIG_HEIGHT_FORMAT, \
     LATEX_FIG_WIDTH_FORMAT, LATEX_FIG_LABEL_FORMAT, LATEX_FIGURE_FORMAT_STR
 from src.models.figure_model import FigureModel
+from src.registers.common_register import global_common_register
 
 
 class FigureCompilerLatex(FigureModel, BaseCompiler):
@@ -19,6 +20,9 @@ class FigureCompilerLatex(FigureModel, BaseCompiler):
             if self.height else ""
         label_str = LATEX_FIG_LABEL_FORMAT.format(label=self.label) \
             if self.label else ""
+
+        # register the label
+        global_common_register.register_new_label(self.label)
 
         # valid pandoc figure syntax, see constants for more
         return LATEX_FIGURE_FORMAT_STR.format(
