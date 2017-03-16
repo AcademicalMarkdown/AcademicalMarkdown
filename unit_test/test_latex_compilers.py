@@ -1,14 +1,14 @@
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
-from src.compilers.to_latex.tabel_compiler_latex import TableCompilerLatex
-from src.compilers.to_latex.theorem_compiler_latex import TheoremCompiler
+from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
+from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
 from src.registers.latex_register import global_latex_register
 from unit_test.helpers.constants_for_test import *
 
 code_latex_compiler = CodeCompilerLatex()
 fig_latex_compiler = FigureCompilerLatex()
 table_latex_compiler = TableCompilerLatex()
-theorem_compiler = TheoremCompiler()
+theorem_compiler = TheoremCompilerLatex()
 
 
 class TestLatexCodeCompiler:
