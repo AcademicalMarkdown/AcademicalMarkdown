@@ -5,7 +5,8 @@ from typing import List
 from tabulate import tabulate
 
 from src.compilers.base_compiler import BaseCompiler
-from src.helpers.constants import LATEX_TABLE_FORMAT_STR, CSV_DELIMINATOR
+from src.helpers.constants import LATEX_TABLE_FORMAT_STR, CSV_DELIMINATOR, \
+    DECODE_ERROR_MESSAGE_FORMAT
 from src.models.table_model import TableModel
 
 
@@ -18,13 +19,18 @@ class TableCompilerLatex(TableModel, BaseCompiler):
                         Notice the CSV file is read via python default setting
         :return: the content of the csv file in list of list format
         """
-        with codecs.open(file_name, encoding='utf-8') as f:
-            # read the csv file
-            content = csv.reader(f, delimiter=CSV_DELIMINATOR)
+        try:
+            with codecs.open(file_name, encoding='utf-8') as f:
+                # read the csv file
+                content = csv.reader(f, delimiter=CSV_DELIMINATOR)
 
-            # cast content to list (extract the content)
-            # to prevent file close out side of with block
-            content = list(content)
+                # cast content to list (extract the content)
+                # to prevent file close out side of with block
+                content = list(content)
+        except UnicodeDecodeError:
+            raise UnicodeDecodeError(
+                DECODE_ERROR_MESSAGE_FORMAT.format(filename=file_name)
+            )
 
         return content
 
