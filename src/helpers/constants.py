@@ -26,3 +26,11 @@ LATEX_TABLE_FORMAT_STR = """
 {content}
 
 : {caption} \label{{ {label} }}"""
+
+# ======================== theorem compile section ========================
+
+LATEX_THEOREM_FORMAT_STR = '''
+\\begin{{{theorem_type}}}
+\\label{{{label}}}
+{content}
+\\end{{{theorem_type}}}'''
