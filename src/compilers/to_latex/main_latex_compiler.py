@@ -10,7 +10,7 @@ from src.compilers.to_latex.include_compiler_latex import IncludeCompilerLatex
 from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
 from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
 from src.helpers.constants import YAML_BLOCK_REGEX, \
-    UNESCAPED_REPLACEMENT_LIST, YAML_PARSE_ERROR_FORMAT, \
+    UNESCAPED_REGEX_SUB_LIST, YAML_PARSE_ERROR_FORMAT, \
     COMPILER_LOAD_ERROR_FORMAT, \
     YAML_BLOCK_STRIP_REGEX, YAML_BLOCK_STRIP_REPLACE_REGEX
 from src.helpers.general_function import positional_to_keyword_para
@@ -148,7 +148,7 @@ def compile_to_pandoc_for_latex(mdac_content: str) -> str:
                                 yaml_blocks=compiled_yaml_blocks)
 
     # unescape all the escapes
-    for escape in UNESCAPED_REPLACEMENT_LIST:
-        document.replace(escape[0], escape[1])
+    for escape in UNESCAPED_REGEX_SUB_LIST:
+        document = re.sub(escape[0], escape[1], document)
 
     return document
