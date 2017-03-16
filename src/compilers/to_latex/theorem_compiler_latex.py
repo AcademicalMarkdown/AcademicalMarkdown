@@ -4,7 +4,7 @@ from src.models.theorem_model import TheoremModel
 from src.registers.latex_register import global_latex_register
 
 
-class TheoremCompiler(TheoremModel, BaseCompiler):
+class TheoremCompilerLatex(TheoremModel, BaseCompiler):
     def compile(self) -> str:
         """
         return a pure latex theorem block
