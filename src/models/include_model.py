@@ -23,4 +23,4 @@ class IncludeModel(BaseModel):
         this function returns the parameters that support positional parameter
         :return: no parameter support positional
         """
-        return []
+        return ['file']
