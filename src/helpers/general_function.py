@@ -1,5 +1,7 @@
+import re
 from typing import List, Union
 
+from src.helpers.constants import UNESCAPED_REGEX_SUB_LIST
 from src.models.base_model import BaseModel
 
 
@@ -30,3 +32,16 @@ def positional_to_keyword_para(model: BaseModel,
             res_paras.update({positional_para[index]: para})
 
     return res_paras
+
+
+def unescape_block(block_str: str) -> str:
+    """
+    this function takes a block of text and unescape it
+    :param block_str: the original block string
+    :return: the unescaped block text
+    """
+    # unescape all the escapes
+    for escape in UNESCAPED_REGEX_SUB_LIST:
+        block_str = re.sub(escape[0], escape[1], block_str)
+
+    return block_str
