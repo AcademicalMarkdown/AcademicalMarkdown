@@ -37,9 +37,9 @@ LATEX_THEOREM_FORMAT_STR = '''
 \\end{{{theorem_type}}}'''
 
 # ======================== ref compile section ===========================
-ORIG_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?[@{label}]"
+ORIG_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[@{label}\]"
 COMPILED_REF_REGEX_FORMAT = r"\1\\ref{{{label}}}"
-ORIG_PAGE_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?[p@{label}]"
+ORIG_PAGE_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[p@{label}\]"
 COMPILED_PAGE_REF_REGEX_FORMAT = r"\1\\pageref{{{label}}}"
 
 # ======================== main compiler section =========================

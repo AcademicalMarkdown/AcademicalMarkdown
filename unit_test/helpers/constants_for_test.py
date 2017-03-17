@@ -45,3 +45,11 @@ theorem_test_dict = {'label': 'thm:maxwell eq',
                      'content': 'great theorem',
                      'theorem_type': 'Lemma'}
 theorem_req_para = ['content']
+
+ref_label_test_list = ['space test', '{bracket test}', 't']
+ref_label_test_doc = '''
+this is [@space test] is great.
+this label is not found [@not found label]
+bracket... I don't know [@{bracket test}]
+this is escaped \\[@t]
+this one is not escaped \\\\[@t]'''
