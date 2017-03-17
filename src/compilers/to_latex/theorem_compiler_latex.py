@@ -6,15 +6,24 @@ from src.registers.latex_register import LatexRegister
 
 
 class TheoremCompilerLatex(TheoremModel, BaseCompiler):
+    def load_dict(self, input_dict: dict):
+        """
+        call the super method (defined in BaseModel),
+        then register label and theorem
+        :param input_dict: the input dict
+        """
+        # call the original load dict
+        super().load_dict(input_dict)
+
+        # register the theorem type to register (for latex header)
+        LatexRegister.register_theorem_type(self.theorem_type)
+        CommonRegister.register_new_label(self.label)
+
     def compile(self) -> str:
         """
         return a pure latex theorem block
         :return: a pure latex syntax theorem
         """
-
-        # register the theorem type to register (for latex header)
-        LatexRegister.register_theorem_type(self.theorem_type)
-        CommonRegister.register_new_label(self.label)
 
         return LATEX_THEOREM_FORMAT_STR.format(
             theorem_type=self.theorem_type,

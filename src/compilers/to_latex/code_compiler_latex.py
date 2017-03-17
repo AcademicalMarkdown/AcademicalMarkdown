@@ -8,6 +8,17 @@ from src.registers.common_register import CommonRegister
 
 
 class CodeCompilerLatex(CodeModel, BaseCompiler):
+    def load_dict(self, input_dict: dict):
+        """
+        call the super method (defined in BaseModel), then register the label
+        :param input_dict: the input dict
+        """
+        # call the original load dict
+        super().load_dict(input_dict)
+
+        # register the label
+        CommonRegister.register_new_label(self.label)
+
     def compile(self) -> str:
         """
         this function returns a string as the compiled result as
@@ -23,9 +34,6 @@ class CodeCompilerLatex(CodeModel, BaseCompiler):
         # construct parameters
         label_str = LATEX_CODE_LABEL_FORMAT.format(label=self.label) \
             if self.label else ""
-
-        # register the label
-        CommonRegister.register_new_label(self.label)
 
         # return the pandoc code that can be convert to latex
         return LATEX_CODE_FORMAT_STR.format(

@@ -13,7 +13,8 @@ from src.helpers.constants import YAML_BLOCK_REGEX, \
     YAML_PARSE_ERROR_FORMAT, \
     COMPILER_LOAD_ERROR_FORMAT, \
     YAML_BLOCK_STRIP_REGEX, YAML_BLOCK_STRIP_REPLACE_REGEX
-from src.helpers.general_function import positional_to_keyword_para
+from src.helpers.general_function import positional_to_keyword_para, \
+    unescape_block
 
 YAML_HEADER_TO_COMPILER_DICT = {
     'code': CodeCompilerLatex,
@@ -35,15 +36,13 @@ def __strip_yaml_block__(yaml_block):
                   string=yaml_block)
 
 
-def __compile_loaded_yaml__(compiler: BaseCompiler,
-                            loaded_yaml: Union[dict, list]) -> str:
+def __parse_loaded_yaml__(compiler: BaseCompiler,
+                          loaded_yaml: Union[dict, list]) -> BaseCompiler:
     """
-    compile a loaded yaml, each loaded_yaml is a dict or a list that
-    represent the parameter of a compiler
+    loaded each loaded_yaml into a compiler, and return that compiler
     :param compiler: the compiler used to compile
     :param loaded_yaml: a dict or a list that is the loaded from yaml block
-    :return: compiled string for current block
-            (the embedded block will also be compiled)
+    :return: a compiler object that is loaded with the loaded_yaml
     """
     # convert the input to keyword parameter
     dict_input = positional_to_keyword_para(compiler, loaded_yaml)
@@ -51,16 +50,29 @@ def __compile_loaded_yaml__(compiler: BaseCompiler,
     # load the dict into compiler
     compiler.load_dict(dict_input)
 
-    # compile
-    compile_result = compiler.compile()
-
-    # compile embedded yaml block
-    final_result = compile_to_pandoc_for_latex(compile_result)
-
-    return final_result
+    return compiler
 
 
-def __compile_yaml_block__(yaml_block: str) -> str:
+def __invoke_compile__(compiler: BaseCompiler) -> str:
+    """
+    compile the compiler, the compiler is already loaded with data.
+    if the compiler type requires raw_data (like code compiler),
+    we will not unescape that block and will not compile embedded statements
+    :param compiler: a compiler that is loaded with data
+    :return: the final string that is compiled
+    """
+    compile_res = compiler.compile()
+
+    if not compiler.use_raw_data:
+        embedded_res = compile_to_pandoc_for_latex(compile_res)
+        final_res = unescape_block(embedded_res)
+    else:
+        final_res = compile_res
+
+    return final_res
+
+
+def __parse_yaml_block__(yaml_block: str) -> BaseCompiler:
     """
     compile a yaml block into pandoc
     :param yaml_block: a mdac yaml block
@@ -87,8 +99,8 @@ def __compile_yaml_block__(yaml_block: str) -> str:
 
     loaded_yaml = block_dict[yaml_header]
     try:
-        compiled_str = __compile_loaded_yaml__(compiler=compiler,
-                                               loaded_yaml=loaded_yaml)
+        compiler = __parse_loaded_yaml__(compiler=compiler,
+                                         loaded_yaml=loaded_yaml)
     except TypeError as error:
         raise TypeError(COMPILER_LOAD_ERROR_FORMAT.format(
             yaml_block=yaml_block,
@@ -96,7 +108,7 @@ def __compile_yaml_block__(yaml_block: str) -> str:
         )
         )
 
-    return compiled_str
+    return compiler
 
 
 def __merge_blocks__(simple_blocks: List[str], yaml_blocks: List[str]) -> str:
@@ -138,13 +150,23 @@ def compile_to_pandoc_for_latex(mdac_content: str) -> str:
     # a list of regular block
     simple_blocks = re.split(pattern=YAML_BLOCK_REGEX, string=mdac_content)
 
-    # compile yaml block
-    compiled_yaml_blocks = [
-        __compile_yaml_block__(yaml_block) for yaml_block in yaml_blocks
+    # unescape all the simple block
+    compiled_simple_block = [
+        unescape_block(simple_block) for simple_block in simple_blocks
+        ]
+
+    # parse all yaml block (this step will also register everything)
+    yaml_block_compilers = [
+        __parse_yaml_block__(yaml_block) for yaml_block in yaml_blocks
+        ]
+
+    # compile all the yaml block
+    yaml_block_compile_res = [
+        __invoke_compile__(compiler) for compiler in yaml_block_compilers
         ]
 
     # merge simple block with compiled yaml block
-    document = __merge_blocks__(simple_blocks=simple_blocks,
-                                yaml_blocks=compiled_yaml_blocks)
+    document = __merge_blocks__(simple_blocks=compiled_simple_block,
+                                yaml_blocks=yaml_block_compile_res)
 
     return document

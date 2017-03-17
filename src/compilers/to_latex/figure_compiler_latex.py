@@ -6,6 +6,17 @@ from src.registers.common_register import CommonRegister
 
 
 class FigureCompilerLatex(FigureModel, BaseCompiler):
+    def load_dict(self, input_dict: dict):
+        """
+        call the super method (defined in BaseModel), then register the label
+        :param input_dict: the input dict
+        """
+        # call the original load dict
+        super().load_dict(input_dict)
+
+        # register the label
+        CommonRegister.register_new_label(self.label)
+
     def compile(self) -> str:
         """
         this function compile the class into string format
@@ -20,9 +31,6 @@ class FigureCompilerLatex(FigureModel, BaseCompiler):
             if self.height else ""
         label_str = LATEX_FIG_LABEL_FORMAT.format(label=self.label) \
             if self.label else ""
-
-        # register the label
-        CommonRegister.register_new_label(self.label)
 
         # valid pandoc figure syntax, see constants for more
         return LATEX_FIGURE_FORMAT_STR.format(

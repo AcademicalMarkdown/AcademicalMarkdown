@@ -12,6 +12,17 @@ from src.registers.common_register import CommonRegister
 
 
 class TableCompilerLatex(TableModel, BaseCompiler):
+    def load_dict(self, input_dict: dict):
+        """
+        call the super method (defined in BaseModel), then register the label
+        :param input_dict: the input dict
+        """
+        # call the original load dict
+        super().load_dict(input_dict)
+
+        # register the label
+        CommonRegister.register_new_label(self.label)
+
     @staticmethod
     def __get_csv_content__(file_name: str) -> List[List[str]]:
         """
@@ -50,9 +61,6 @@ class TableCompilerLatex(TableModel, BaseCompiler):
                 self.content = tabulate(csv_matrix, headers='firstrow')
             else:
                 self.content = tabulate(csv_matrix)
-
-        # register the label
-        CommonRegister.register_new_label(self.label)
 
         # return format
         return LATEX_TABLE_FORMAT_STR.format(
