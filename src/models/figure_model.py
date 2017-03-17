@@ -1,3 +1,5 @@
+from typing import Union
+
 from src.models.base_model import BaseModel
 
 
@@ -15,8 +17,10 @@ class FigureModel(BaseModel):
         self.width = ""
         self.height = ""
 
-    def __construct__(self, source: str, caption: str, width: str = '',
-                      height: str = '', code: str = '', label: str = ''):
+    def __construct__(self, source: str, caption: str,
+                      width: Union[str, int] = '',
+                      height: Union[str, int] = '',
+                      code: str = '', label: str = ''):
         """
         this function is used to construct current class
         :param code: the code to exec will compile,
@@ -30,8 +34,8 @@ class FigureModel(BaseModel):
         self.label = label
         self.source = source
         self.caption = caption
-        self.width = width
-        self.height = height
+        self.width = str(width)
+        self.height = str(height)
         self.code = code
 
     @staticmethod
