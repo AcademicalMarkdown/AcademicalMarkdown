@@ -4,7 +4,7 @@ from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_CODE_FORMAT_STR, \
     LATEX_CODE_LABEL_FORMAT
 from src.models.code_model import CodeModel
-from src.registers.common_register import global_common_register
+from src.registers.common_register import CommonRegister
 
 
 class CodeCompilerLatex(CodeModel, BaseCompiler):
@@ -25,7 +25,7 @@ class CodeCompilerLatex(CodeModel, BaseCompiler):
             if self.label else ""
 
         # register the label
-        global_common_register.register_new_label(self.label)
+        CommonRegister.register_new_label(self.label)
 
         # return the pandoc code that can be convert to latex
         return LATEX_CODE_FORMAT_STR.format(

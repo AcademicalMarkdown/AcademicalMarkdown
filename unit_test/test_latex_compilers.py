@@ -3,8 +3,8 @@ from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.refrence_compiler import compile_ref
 from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
 from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
-from src.registers.common_register import global_common_register
-from src.registers.latex_register import global_latex_register
+from src.registers.common_register import CommonRegister
+from src.registers.latex_register import LatexRegister
 from unit_test.helpers.constants_for_test import *
 
 code_latex_compiler = CodeCompilerLatex()
@@ -71,13 +71,13 @@ great theorem
 \\end{Lemma}'''
 
         assert theorem_compiler.compile() == exp_res
-        assert global_latex_register.theorem_types == {'Lemma'}
+        assert LatexRegister.get_theorem_types() == {'Lemma'}
 
 
 class TestLatexRefCompiler:
     def test_ref(self):
         for label in ref_label_test_list:
-            global_common_register.register_new_label(label)
+            CommonRegister.register_new_label(label)
 
         exp_res = '''
 this is \\ref{space test} is great.

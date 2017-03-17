@@ -8,7 +8,7 @@ from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_TABLE_FORMAT_STR, CSV_DELIMINATOR, \
     DECODE_ERROR_MESSAGE_FORMAT
 from src.models.table_model import TableModel
-from src.registers.common_register import global_common_register
+from src.registers.common_register import CommonRegister
 
 
 class TableCompilerLatex(TableModel, BaseCompiler):
@@ -52,7 +52,7 @@ class TableCompilerLatex(TableModel, BaseCompiler):
                 self.content = tabulate(csv_matrix)
 
         # register the label
-        global_common_register.register_new_label(self.label)
+        CommonRegister.register_new_label(self.label)
 
         # return format
         return LATEX_TABLE_FORMAT_STR.format(

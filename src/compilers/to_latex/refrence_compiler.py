@@ -3,7 +3,7 @@ import re
 from src.helpers.constants import ORIG_PAGE_REF_REGEX_FORMAT, \
     ORIG_REF_REGEX_FORMAT, \
     COMPILED_PAGE_REF_REGEX_FORMAT, COMPILED_REF_REGEX_FORMAT
-from src.registers.common_register import global_common_register
+from src.registers.common_register import CommonRegister
 
 
 def __gen_ref_sub_tuple__(label: str) -> (str, str):
@@ -32,7 +32,7 @@ def compile_ref(document: str) -> str:
     :param document: the whole corpus of the document
     :return: a new document with all the refs compiled
     """
-    labels = global_common_register.label_list
+    labels = CommonRegister.get_label_set()
 
     # build the replacement tuple
     for label in labels:
