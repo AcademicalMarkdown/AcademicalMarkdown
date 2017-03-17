@@ -7,6 +7,7 @@ class CodeModel(BaseModel):
         this class defines the model for code block
         """
         super().__init__()
+        self.__use_raw_data__ = True
         self.label = ""
         self.syntax = ""
         self.caption = ""

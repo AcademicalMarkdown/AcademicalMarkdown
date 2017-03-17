@@ -7,6 +7,7 @@ class IncludeModel(BaseModel):
         this is the class for include block model
         """
         super().__init__()
+        self.__use_raw_data__ = False
         self.file = ""
 
     def __construct__(self, file: str):

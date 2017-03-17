@@ -8,6 +8,7 @@ class ConstantModel(BaseModel):
         this class defines the a model class for constant block
         """
         super().__init__()
+        self.__use_raw_data__ = False
         self.label = ''
         self.content = ''
 

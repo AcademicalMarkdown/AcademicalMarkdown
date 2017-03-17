@@ -4,6 +4,7 @@ from src.models.base_model import BaseModel
 class TableModel(BaseModel):
     def __init__(self):
         super().__init__()
+        self.__use_raw_data__ = False
         self.file = ''
         self.content = ""
         self.top_header = True

@@ -3,7 +3,15 @@ class BaseModel:
         """
         this is a prototype for all the models
         """
-        pass
+        # use the raw data for current block compile
+        # this means do not change anything in this block's compile result
+        # including not compile embedded statement, not unescape characters
+        # and so on.
+        self.__use_raw_data__ = False
+
+    @property
+    def use_raw_data(self):
+        return self.__use_raw_data__
 
     def load_dict(self, input_dict: dict):
         """

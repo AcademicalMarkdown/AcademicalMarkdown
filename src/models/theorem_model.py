@@ -7,6 +7,7 @@ class TheoremModel(BaseModel):
         this class is the model for theorem block
         """
         super().__init__()
+        self.__use_raw_data__ = False
         self.label = ''
         self.content = ''
         self.theorem_type = ''

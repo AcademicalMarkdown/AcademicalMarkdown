@@ -7,6 +7,7 @@ class FigureModel(BaseModel):
         this class defines the model for figure block
         """
         super().__init__()
+        self.__use_raw_data__ = False
         self.code = ""
         self.label = ""
         self.source = ""
