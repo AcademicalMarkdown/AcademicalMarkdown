@@ -17,7 +17,8 @@ from src.helpers.constants import YAML_BLOCK_REGEX, \
 from src.helpers.general_function import positional_to_keyword_para, \
     unescape_block
 
-# use lambda to get lazy result
+# this dict that maps the yaml block header to its corresponding compiler
+# lambda is used to get lazy result
 YAML_HEADER_TO_COMPILER_DICT = {
     'code': lambda: CodeCompilerLatex(),
     'figure': lambda: FigureCompilerLatex(),
