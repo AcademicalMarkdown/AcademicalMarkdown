@@ -94,3 +94,25 @@ class TestToKeywordPara:
             model=TheoremModel,
             paras=test_instance
         ) == expect_res
+
+
+class TestUnescape:
+    def test_yaml(self):
+        block = '\\%--- \\---%'
+        exp_res = '%--- ---%'
+        assert gf.unescape_block(block) == exp_res
+
+    def test_yaml_unescape(self):
+        block = r'\\%--- \\---%'
+        exp_res = '\\%--- \\---%'
+        assert gf.unescape_block(block) == exp_res
+
+    def test_ref_ending(self):
+        block = r'[@test\]\]]'
+        exp_res = r'[@test]]]'
+        assert gf.unescape_block(block) == exp_res
+
+    def test_ref_beginning(self):
+        block = r'\[@test]'
+        exp_res = r'[@test]'
+        assert gf.unescape_block(block) == exp_res
