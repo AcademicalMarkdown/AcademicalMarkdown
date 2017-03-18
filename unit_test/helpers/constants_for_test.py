@@ -53,3 +53,37 @@ this label is not found [@not found label]
 bracket... I don't know [@{bracket test}]
 this is escaped \\[@t]
 this one is not escaped \\\\[@t]'''
+
+test_yaml_with_minus_ending = '''
+---
+title:  'This is the title: it contains a colon'
+author:
+- Author One
+- Author Two
+tags: [nothing, nothingness]
+constants:
+    - test: test1
+    - test1: test 2
+abstract: |
+  This is the abstract.
+
+  It consists of two paragraphs.
+---'''
+
+test_yaml_with_output_conf = '''
+---
+title:  'This is the title: it contains a colon'
+author:
+- Author One
+- Author Two
+tags: [nothing, nothingness]
+output:
+    - format: latex
+      default: true
+    - format: HTML
+      default: true
+abstract: |
+  This is the abstract.
+
+  It consists of two paragraphs.
+...'''
