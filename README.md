@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia.svg?branch=master)](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia)
 [![](https://img.shields.io/aur/license/yaourt.svg)](LICENSE)
 ![](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)
+[![codecov](https://codecov.io/gh/MarkdownForAcademia/markdown_for_academia/branch/master/graph/badge.svg)](https://codecov.io/gh/MarkdownForAcademia/markdown_for_academia)
 
 
 realizing the dream to use markdown for academic writing.
