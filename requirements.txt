@@ -3,4 +3,4 @@ pytest
 pycodestyle
 tabulate
 codecov
-pytestcov
+pytest-cov
