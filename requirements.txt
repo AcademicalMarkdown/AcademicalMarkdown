@@ -2,3 +2,4 @@ PyYAML
 pytest
 pycodestyle
 tabulate
+codecov
