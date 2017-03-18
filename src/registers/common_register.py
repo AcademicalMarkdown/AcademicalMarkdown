@@ -1,4 +1,4 @@
-from typing import Set, Dict
+from typing import Set, Dict, Tuple
 
 
 class CommonRegister:  # a static class with all the common registers
@@ -24,7 +24,7 @@ class CommonRegister:  # a static class with all the common registers
             cls.__label_set__.add(new_label)
 
     @classmethod
-    def get_constants_set(cls) -> Set[(str, str)]:
+    def get_constants_set(cls) -> Set[Tuple[str, str]]:
         """
         get the constants set
         :return: the constants set
@@ -32,7 +32,7 @@ class CommonRegister:  # a static class with all the common registers
         return cls.__constants_set__
 
     @classmethod
-    def register_constants(cls, new_constants: Set[(str, str)]):
+    def register_constants(cls, new_constants: Set[Tuple[str, str]]):
         """
         this is the method to add constants into
         the original constants in the registry
