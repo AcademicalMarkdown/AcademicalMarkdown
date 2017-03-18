@@ -2,5 +2,5 @@ PyYAML
 pytest
 pycodestyle
 tabulate
-codecov
+https://github.com/codecov/codecov-python/tarball/v2.0.6
 pytest-cov
