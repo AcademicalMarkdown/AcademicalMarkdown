@@ -42,6 +42,9 @@ COMPILED_REF_REGEX_FORMAT = r"\1\\ref{{{label}}}"
 ORIG_PAGE_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[p@{label}\]"
 COMPILED_PAGE_REF_REGEX_FORMAT = r"\1\\pageref{{{label}}}"
 
+# ======================== constants compile section ====================
+ORIG_CONST_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[@{label}\]"
+
 # ======================== main compiler section =========================
 YAML_HEADER_REGEX = re.compile(r"\A---(.*)^[-.]{3}", re.MULTILINE | re.DOTALL)
 
