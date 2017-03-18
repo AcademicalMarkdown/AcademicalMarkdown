@@ -16,12 +16,13 @@ from src.helpers.constants import YAML_BLOCK_REGEX, \
 from src.helpers.general_function import positional_to_keyword_para, \
     unescape_block
 
+# use lambda to get lazy result
 YAML_HEADER_TO_COMPILER_DICT = {
-    'code': CodeCompilerLatex,
-    'figure': FigureCompilerLatex,
-    'include': IncludeCompilerLatex,
-    'table': TableCompilerLatex,
-    'theorem': TheoremCompilerLatex
+    'code': lambda: CodeCompilerLatex(),
+    'figure': lambda: FigureCompilerLatex(),
+    'include': lambda: IncludeCompilerLatex(),
+    'table': lambda: TableCompilerLatex(),
+    'theorem': lambda: TheoremCompilerLatex()
 }
 
 
@@ -64,7 +65,7 @@ def __invoke_compile__(compiler: BaseCompiler) -> str:
     compile_res = compiler.compile()
 
     if not compiler.use_raw_data:
-        embedded_res = compile_to_pandoc_for_latex(compile_res)
+        embedded_res = compile_to_pandoc(compile_res)
         final_res = unescape_block(embedded_res)
     else:
         final_res = compile_res
@@ -84,7 +85,7 @@ def __parse_yaml_block__(yaml_block: str) -> BaseCompiler:
     # try to load the yaml
     try:
         # remove the leading and ending '%'
-        block_dict = yaml.safe_load(yaml_block)
+        yaml_dict = yaml.safe_load(yaml_block)
     except yaml.YAMLError as error:
         raise yaml.YAMLError(
             YAML_PARSE_ERROR_FORMAT.format(yaml_block=yaml_block,
@@ -92,12 +93,21 @@ def __parse_yaml_block__(yaml_block: str) -> BaseCompiler:
         )
 
     # identify yaml header
-    yaml_header = block_dict.keys()[0]
+    yaml_header = tuple(yaml_dict.keys())[0]
 
-    # forgive me for not putting this in constant
-    compiler = YAML_HEADER_TO_COMPILER_DICT[yaml_header.lower()]
+    # find the compiler correspond to the header
+    # because the YAML_HEADER_TO_COMPILER_DICT is str mapped to functions
+    # therefore need the little "()" in the end to call the function
+    # see the docs on the beginning of the file on YAML_HEADER_TO_COMPILER_DICT
+    # for more info
+    compiler = YAML_HEADER_TO_COMPILER_DICT[yaml_header.lower()]()
 
-    loaded_yaml = block_dict[yaml_header]
+    # remove the header (get the content of header)
+    # example: yaml block:
+    # code:
+    #     - testing code
+    # we want to remove the code header, just use yaml_dict['code']
+    loaded_yaml = yaml_dict[yaml_header]
     try:
         compiler = __parse_loaded_yaml__(compiler=compiler,
                                          loaded_yaml=loaded_yaml)
@@ -137,7 +147,7 @@ def __merge_blocks__(simple_blocks: List[str], yaml_blocks: List[str]) -> str:
     return ''.join(flattened_list + [last_simple_block])
 
 
-def compile_to_pandoc_for_latex(mdac_content: str) -> str:
+def compile_to_pandoc(mdac_content: str) -> str:
     """
     this function compiles the mdac (markdown for academia) to pandoc documents
     that is capable of converting to latex
