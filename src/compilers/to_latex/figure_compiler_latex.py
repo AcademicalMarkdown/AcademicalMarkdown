@@ -1,4 +1,4 @@
-from src.compilers.base_compiler import BaseCompiler
+from src.compilers.common_compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_FIG_HEIGHT_FORMAT, \
     LATEX_FIG_WIDTH_FORMAT, LATEX_FIG_LABEL_FORMAT, LATEX_FIGURE_FORMAT_STR
 from src.models.figure_model import FigureModel

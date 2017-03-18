@@ -1,4 +1,4 @@
-from src.compilers.base_compiler import BaseCompiler
+from src.compilers.common_compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_THEOREM_FORMAT_STR
 from src.models.theorem_model import TheoremModel
 from src.registers.common_register import CommonRegister

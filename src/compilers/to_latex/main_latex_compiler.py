@@ -3,7 +3,7 @@ from typing import Union, List
 
 import yaml
 
-from src.compilers.base_compiler import BaseCompiler
+from src.compilers.common_compilers.base_compiler import BaseCompiler
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.include_compiler_latex import IncludeCompilerLatex

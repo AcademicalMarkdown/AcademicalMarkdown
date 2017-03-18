@@ -1,6 +1,6 @@
 import codecs
 
-from src.compilers.base_compiler import BaseCompiler
+from src.compilers.common_compilers.base_compiler import BaseCompiler
 from src.helpers.constants import DECODE_ERROR_MESSAGE_FORMAT
 from src.models.include_model import IncludeModel
 
