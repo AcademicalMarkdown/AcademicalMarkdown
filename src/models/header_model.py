@@ -9,8 +9,12 @@ class HeaderModel(BaseModel):
         super().__init__()
         self.constants = {}
         self.outputs = []
+        self.__whole_header_dict__ = {}
+        self.__use_raw_data__ = True
 
     def load_dict(self, input_dict: dict):
+        self.__whole_header_dict__ = input_dict
+
         try:
             constants = input_dict['constants']
             CommonRegister.register_constants(constants)
