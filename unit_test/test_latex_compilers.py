@@ -62,6 +62,9 @@ testing  2
 
 class TestLatexTheoremCompiler:
     def test_theorem(self):
+        # clears the latex register
+        LatexRegister.__clear__()
+
         theorem_compiler.load_dict(
             input_dict=theorem_test_dict
         )
@@ -77,6 +80,9 @@ great theorem
 
 class TestLatexRefCompiler:
     def test_ref(self):
+        # clears the common register
+        CommonRegister.__clear__()
+
         for label in ref_label_test_list:
             CommonRegister.register_new_label(label)
 
