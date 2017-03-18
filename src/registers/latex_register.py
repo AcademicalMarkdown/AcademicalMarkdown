@@ -5,6 +5,15 @@ class LatexRegister:
     __theorem_types__ = set()
 
     @classmethod
+    def __clear__(cls):
+        """
+        this method clears the LatexRegister
+        this method is mainly used for testing,
+        highly unrecommended to use in your code
+        """
+        cls.__theorem_types__ = set()
+
+    @classmethod
     def get_theorem_types(cls) -> Set[str]:
         """
         this gets the list of theorem type that has been registered

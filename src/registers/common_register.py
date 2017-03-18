@@ -7,6 +7,17 @@ class CommonRegister:  # a static class with all the common registers
     __output_configs__ = set()  # this is the output setting on the header
 
     @classmethod
+    def __clear__(cls):
+        """
+        this method clears the CommonRegister
+        this method is mainly used in testing,
+        highly unrecommended to use in code
+        """
+        cls.__label_set__ = set()
+        cls.__constants_set__ = set()
+        cls.__output_configs__ = set()
+
+    @classmethod
     def get_label_set(cls) -> Set[str]:
         """
         this function is the property to get label list
