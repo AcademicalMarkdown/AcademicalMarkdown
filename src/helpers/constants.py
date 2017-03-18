@@ -64,11 +64,12 @@ YAML_BLOCK_STRIP_REGEX = re.compile(r"""
 YAML_BLOCK_STRIP_REPLACE_REGEX = "\\1"
 
 UNESCAPED_REGEX_SUB_LIST = [
-    ('\\%---', '%---'),  # escaped beginning block
-    ('\\---%', '---%'),  # escaped ending block
-    (r'(?:\\)(\\\\)*?\[@(.*)\]', r'\1[@\2]'),  # escaped ref labels
-    (r'(?:\\)(\\\\)*?\[p@(.*)\]', r'\1[p@\2]'),  # escaped page ref labels
-    ('\\\\', '\\'),
+    (r'(\\\\)*\\%---', r'\1%---'),  # escaped beginning block
+    (r'(\\\\)*\\---%', r'\1---%'),  # escaped ending block
+    (r'(?:\\)(\\\\)*?\[@', r'\1[@'),  # escaped ref labels beginning
+    (r'(?:\\)(\\\\)*?\[p@', r'\1[p@'),  # escaped page ref labels
+    (r'\\]', r']'),  # escaped ref & page ref labels beginning
+    (r'\\\\', r'\\'),
 ]
 
 # ======================= Error message Section ===========================
