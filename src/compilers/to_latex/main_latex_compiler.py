@@ -7,6 +7,7 @@ from src.compilers.base_compiler import BaseCompiler
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.include_compiler_latex import IncludeCompilerLatex
+from src.compilers.to_latex.refrence_compiler import compile_ref
 from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
 from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
 from src.helpers.constants import YAML_BLOCK_REGEX, \
@@ -65,8 +66,12 @@ def __invoke_compile__(compiler: BaseCompiler) -> str:
     compile_res = compiler.compile()
 
     if not compiler.use_raw_data:
+        # compile embedded block
         embedded_res = compile_to_pandoc(compile_res)
-        final_res = unescape_block(embedded_res)
+        # compile ref
+        compile_ref_res = compile_ref(embedded_res)
+        # unescape the block
+        final_res = unescape_block(compile_ref_res)
     else:
         final_res = compile_res
 
@@ -121,6 +126,20 @@ def __parse_yaml_block__(yaml_block: str) -> BaseCompiler:
     return compiler
 
 
+def __compile_simple_block__(simple_block: str) -> str:
+    """
+    this function compiles all the simple block
+    including compile refs and then unescape
+    :param simple_block: the text of one simple block
+    :return the compiled text
+    """
+
+    ref_compile_res = compile_ref(simple_block)
+    unescape_compile_res = unescape_block(ref_compile_res)
+
+    return unescape_compile_res
+
+
 def __merge_blocks__(simple_blocks: List[str], yaml_blocks: List[str]) -> str:
     """
     merge simple block with compiled yaml block
@@ -160,11 +179,6 @@ def compile_to_pandoc(mdac_content: str) -> str:
     # a list of regular block
     simple_blocks = re.split(pattern=YAML_BLOCK_REGEX, string=mdac_content)
 
-    # unescape all the simple block
-    compiled_simple_block = [
-        unescape_block(simple_block) for simple_block in simple_blocks
-        ]
-
     # parse all yaml block (this step will also register everything)
     yaml_block_compilers = [
         __parse_yaml_block__(yaml_block) for yaml_block in yaml_blocks
@@ -173,6 +187,13 @@ def compile_to_pandoc(mdac_content: str) -> str:
     # compile all the yaml block
     yaml_block_compile_res = [
         __invoke_compile__(compiler) for compiler in yaml_block_compilers
+        ]
+
+    # compile all the simple block
+    # this has to be later than parse yaml block, because we need to register
+    # labels in order to compile ref
+    compiled_simple_block = [
+        __compile_simple_block__(simp_block) for simp_block in simple_blocks
         ]
 
     # merge simple block with compiled yaml block
