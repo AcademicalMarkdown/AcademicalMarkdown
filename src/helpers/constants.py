@@ -49,7 +49,7 @@ COMPILED_PAGE_REF_REGEX_FORMAT = r"\1\\pageref{{{label}}}"
 ORIG_CONST_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[@{label}\]"
 
 # ======================== main compiler section =========================
-YAML_HEADER_REGEX = re.compile(r"\A---(.*)^[-.]{3}", re.MULTILINE | re.DOTALL)
+YAML_HEADER_REGEX = re.compile(r"\A---(.*?)^[-.]{3}", re.MULTILINE | re.DOTALL)
 
 YAML_BLOCK_REGEX = re.compile(r"""
                     ^           # match beginning of a line
