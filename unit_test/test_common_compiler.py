@@ -1,6 +1,7 @@
 import yaml
 from frozendict import frozendict
 
+from src.compilers.common_compilers.constants_compiler import const_compile
 from src.compilers.common_compilers.header_compiler import HeaderCompiler
 from src.registers.common_register import CommonRegister
 from unit_test.helpers.constants_for_test import test_yaml_with_minus_ending, \
@@ -66,3 +67,21 @@ abstract: |
 
         assert yaml.safe_load(compiler.compile()) == yaml.safe_load(
             exp_compil_res)
+
+    class TestConstants:
+        def test_constants(self):
+            CommonRegister.__clear__()
+            CommonRegister.register_constants([('test', 'test\\1'),
+                                               ('test1', 'test 2'),
+                                               ('test2', 'tes\\\\t')])
+
+            test_doc = '[@test1], [@test2] [@test] [@tet], [@test1\\], ' \
+                       '\\[@test]'
+
+            exp_res = 'test 2, tes\\\\t test\\1 [@tet], [@test1\\], \\[@test]'
+
+            assert CommonRegister.get_constants_set() == {
+                ('test', 'test\\1'), ('test1', 'test 2'),
+                ('test2', 'tes\\\\t')}
+
+            assert const_compile(test_doc) == exp_res
