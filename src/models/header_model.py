@@ -54,11 +54,13 @@ class HeaderModel(BaseModel):
 
         try:
             self.__load_constants__(header_dict=input_dict)
+            del self.__header_dict__['constants']
         except KeyError:
             pass
 
         try:
             self.__load_output_config__(header_dict=input_dict)
+            del self.__header_dict__['output']
         except KeyError:
             pass
 
