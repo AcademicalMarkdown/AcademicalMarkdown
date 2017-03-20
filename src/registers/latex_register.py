@@ -36,9 +36,14 @@ class LatexRegister:
         # get all the theorem header for each theorem type
         # for example the theorem header for lemma type will be
         # "\newtheorem{lemma}{lemma}"
+        #
+        # the reason theorem types needs to be sorted is that I want to
+        # keep the test case consistent
+        # if it is not sorted, the order of the theorem header will be random
+        # I don't know why... TODO: figure out why
         theorem_header_list = [
             THEOREM_HEADER_FORMAT_STR.format(theorem_type=theo_type) for
-            theo_type in cls.__theorem_types__
+            theo_type in sorted(cls.__theorem_types__)
             ]
 
         # join each theorem header together with new lines
