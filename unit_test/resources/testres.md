@@ -23,12 +23,12 @@ title: 'This is the title: it contains a colon'
 ## use raw
 
 
-~~~{ .python caption="this is a test" label=raw code }
+~~~~{ .python caption="this is a test" label="raw code" }
 for i in range([@testLabel])
 %---embed\---%
 test backslash \\
 
-~~~
+~~~~
 
 
 ## use file

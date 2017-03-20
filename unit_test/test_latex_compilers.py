@@ -20,7 +20,7 @@ class TestLatexCodeCompiler:
             input_dict=code_test_dict_with_file
         )
         exp_res = '''
-~~~~{ .python caption="this is a test code" label=test_code }
+~~~~{ .python caption="this is a test code" label="test_code" }
 def resource():
     return "this file is used for testing"
 
