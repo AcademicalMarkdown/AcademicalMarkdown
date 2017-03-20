@@ -98,6 +98,9 @@ this one is not escaped \\\\\\ref{t}'''
 
 class TestMainCompiler:
     def test_main(self):
+        LatexRegister.__clear__()
+        CommonRegister.__clear__()
+
         with open('./unit_test/resources/test.mdac', encoding='utf-8') as f:
             mdac_content = f.read()
             compiled_res = compile_to_pandoc(mdac_content)
