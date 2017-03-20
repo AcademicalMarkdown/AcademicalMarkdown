@@ -42,7 +42,7 @@ class LatexRegister:
             ]
 
         # join each theorem header together with new lines
-        return '\n'.join(theorem_header_list)
+        return '\n'.join(theorem_header_list) + '\n\n'
 
     @classmethod
     def register_theorem_type(cls, new_theorem_type: str):
