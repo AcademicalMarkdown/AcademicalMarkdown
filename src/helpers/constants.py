@@ -36,6 +36,9 @@ LATEX_THEOREM_FORMAT_STR = '''
 {content}
 \\end{{{theorem_type}}}'''
 
+THEOREM_HEADER_FORMAT_STR = '''
+\\newtheorem{{{theorem_type}}}{{{theorem_type}}}'''
+
 # ======================== ref compile section ===========================
 ORIG_REF_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[@{label}\]"
 COMPILED_REF_REGEX_FORMAT = r"\1\\ref{{{label}}}"
