@@ -1,0 +1,4 @@
+pytest
+pycodestyle
+https://github.com/codecov/codecov-python/tarball/v2.0.6
+pytest-cov
