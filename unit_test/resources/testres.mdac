@@ -1,3 +1,23 @@
+---
+abstract: 'This is the abstract.
+
+  It consists of two paragraphs.
+
+  '
+author: [Author One, Author Two]
+tags: [nothing, nothingness]
+title: 'This is the title: it contains a colon'
+...
+
+\newtheorem{MARKDOWN!}{MARKDOWN!}
+
+\newtheorem{Theorem}{Theorem}
+
+\newtheorem{testing}{testing}
+
+
+
+
 # test code
 
 ## use raw
@@ -116,6 +136,14 @@ another a great theorem
 [@tremendous 2]
 
 [@tremendous 2]
+
+[@test1]
+
+# test constants
+
+test 2
+
+test1
 
 
 
