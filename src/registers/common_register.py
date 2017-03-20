@@ -22,6 +22,7 @@ class CommonRegister:  # a static class with all the common registers
         cls.__label_set__ = set()
         cls.__constants_set__ = set()
         cls.__output_configs__ = set()
+        cls.__header_dict__ = {}
 
     @classmethod
     def get_label_set(cls) -> Set[str]:
