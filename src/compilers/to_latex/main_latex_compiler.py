@@ -4,6 +4,8 @@ from typing import Union, List
 import yaml
 
 from src.compilers.common_compilers.base_compiler import BaseCompiler
+from src.compilers.common_compilers.constants_compiler import const_compile
+from src.compilers.common_compilers.header_compiler import HeaderCompiler
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.include_compiler_latex import IncludeCompilerLatex
@@ -12,10 +14,12 @@ from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
 from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
 from src.helpers.constants import YAML_BLOCK_REGEX, \
     YAML_PARSE_ERROR_FORMAT, \
-    COMPILER_LOAD_ERROR_FORMAT, \
+    COMPILER_LOAD_ERROR_FORMAT, YAML_HEADER_REGEX, \
     YAML_BLOCK_STRIP_REGEX, YAML_BLOCK_STRIP_REPLACE_REGEX
 from src.helpers.general_function import positional_to_keyword_para, \
     unescape_block
+from src.registers.common_register import CommonRegister
+from src.registers.latex_register import LatexRegister
 
 # this dict that maps the yaml block header to its corresponding compiler
 # lambda is used to get lazy result
@@ -68,11 +72,13 @@ def __invoke_compile__(compiler: BaseCompiler) -> str:
 
     if not compiler.use_raw_data:
         # compile embedded block
-        embedded_res = compile_to_pandoc(compile_res)
+        embedded_res = main_compile(compile_res)
         # compile ref
         compile_ref_res = compile_ref(embedded_res)
+        # compile constants
+        compile_cons_res = const_compile(compile_ref_res)
         # unescape the block
-        final_res = unescape_block(compile_ref_res)
+        final_res = unescape_block(compile_cons_res)
     else:
         final_res = compile_res
 
@@ -135,8 +141,12 @@ def __compile_simple_block__(simple_block: str) -> str:
     :return the compiled text
     """
 
+    # compile the reference
     ref_compile_res = compile_ref(simple_block)
-    unescape_compile_res = unescape_block(ref_compile_res)
+    # compile the constants
+    const_compile_res = const_compile(ref_compile_res)
+    # unescape the block
+    unescape_compile_res = unescape_block(const_compile_res)
 
     return unescape_compile_res
 
@@ -167,13 +177,46 @@ def __merge_blocks__(simple_blocks: List[str], yaml_blocks: List[str]) -> str:
     return ''.join(flattened_list + [last_simple_block])
 
 
-def compile_to_pandoc(mdac_content: str) -> str:
+def pre_compile(mdac_content: str) -> str:
     """
-    this function compiles the mdac (markdown for academia) to pandoc documents
-    that is capable of converting to latex
-    :param mdac_content: the content of the mdac file
-    :return: a pandoc document
+    this is precompile process, this is done before compiling blocks
+    currently contain:
+    - remove and register header
+    :param mdac_content: the input markdown content
+    :return the document after it is pre compiled (header compiled)
     """
+    match = re.match(YAML_HEADER_REGEX, mdac_content)
+
+    # if there is a yaml header
+    if match:
+        yaml_header = match.group(1)  # get the match group one
+        compiler = HeaderCompiler()  # initialize the header compiler
+        compiler.load_header(yaml_header)  # load the header
+        # remove yaml header content
+        res_content = re.sub(pattern=YAML_HEADER_REGEX, repl='',
+                             string=mdac_content)
+    # if there is no yaml header
+    else:
+        res_content = mdac_content
+
+    return res_content
+
+
+def main_compile(mdac_content: str) -> str:
+    """
+    this is the main compile process, this method will be triggered to compile
+    embedded block
+    including:
+    - compile yaml block
+    - compile reference
+    - compile constants
+    - unescape all the blocks
+    basically everything you need to do that depends on which kind of block
+    you are in
+    :param mdac_content: the document after pre-compile
+    :return the compiled document
+    """
+
     # find all the yaml block
     yaml_blocks = re.findall(pattern=YAML_BLOCK_REGEX, string=mdac_content)
 
@@ -202,3 +245,33 @@ def compile_to_pandoc(mdac_content: str) -> str:
                                 yaml_blocks=yaml_block_compile_res)
 
     return document
+
+
+def post_compile(mdac_content: str) -> str:
+    """
+    everything you need to do after compile blocks
+    currently contain:
+    - add latex theorem declaration
+    - add header
+    :param mdac_content: the document after main_compile
+    :return the final document
+    """
+    theorem_header = LatexRegister.get_theorem_header()
+    yaml_header = CommonRegister.get_yaml_header()
+
+    return yaml_header + theorem_header + mdac_content
+
+
+def compile_to_pandoc(mdac_content: str) -> str:
+    """
+    this function compiles the mdac (markdown for academia) to pandoc documents
+    that is capable of converting to latex
+    :param mdac_content: the content of the mdac file
+    :return: a pandoc document
+    """
+
+    pre_compiled_document = pre_compile(mdac_content)
+    main_compiled = main_compile(pre_compiled_document)
+    final_document = post_compile(main_compiled)
+
+    return final_document
