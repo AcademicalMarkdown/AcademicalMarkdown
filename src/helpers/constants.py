@@ -5,9 +5,9 @@ CSV_DELIMINATOR = ","
 
 # ======================== code compile section ==========================
 LATEX_CODE_FORMAT_STR = '''
-~~~~{{ .{syntax} caption="{caption}" {label} }}
+~~~{{ .{syntax} caption="{caption}" {label} }}
 {content}
-~~~~
+~~~
 '''
 LATEX_CODE_LABEL_FORMAT = "label={label}"
 
