@@ -62,8 +62,8 @@ author:
 - Author Two
 tags: [nothing, nothingness]
 constants:
-    - test: test1
-    - test1: test 2
+    test: test1
+    test1: test 2
 abstract: |
   This is the abstract.
 

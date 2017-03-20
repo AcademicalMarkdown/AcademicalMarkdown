@@ -12,18 +12,29 @@ class HeaderModel(BaseModel):
         self.__whole_header_dict__ = {}
         self.__use_raw_data__ = True
 
+    def __load_constants__(self, header_dict: dict):
+        self.constants = header_dict['constants']
+
+        # convert the dict object into tuples
+        constants_set = set(self.constants.items())
+
+        # register the constants
+        CommonRegister.register_constants(constants_set)
+
+    def __load_output_config__(self, header_dict: dict):
+        self.outputs = header_dict['output']
+        CommonRegister.register_output_configs(self.outputs)
+
     def load_dict(self, input_dict: dict):
         self.__whole_header_dict__ = input_dict
 
         try:
-            constants = input_dict['constants']
-            CommonRegister.register_constants(constants)
+            self.__load_constants__(header_dict=input_dict)
         except KeyError:
             pass
 
         try:
-            outputs = input_dict['output']
-            CommonRegister.register_output_configs(outputs)
+            self.__load_output_config__(header_dict=input_dict)
         except KeyError:
             pass
 

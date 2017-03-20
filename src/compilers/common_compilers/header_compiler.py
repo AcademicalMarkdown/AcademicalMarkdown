@@ -31,8 +31,13 @@ class HeaderCompiler(HeaderModel, BaseCompiler):
         this function returns a yaml header that pandoc is happy about
         :return: a header with all the mdac content deleted
         """
+        # try to delete constants
         try:
             del self.__whole_header_dict__['constants']
+        except KeyError:
+            pass
+        # try to delete output
+        try:
             del self.__whole_header_dict__['output']
         except KeyError:
             pass

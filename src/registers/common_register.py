@@ -1,4 +1,6 @@
-from typing import Set, Dict, Tuple
+from typing import Set, Dict, Tuple, Iterable
+
+from frozendict import frozendict
 
 
 class CommonRegister:  # a static class with all the common registers
@@ -43,14 +45,14 @@ class CommonRegister:  # a static class with all the common registers
         return cls.__constants_set__
 
     @classmethod
-    def register_constants(cls, new_constants: Set[Tuple[str, str]]):
+    def register_constants(cls, new_constants: Iterable[Tuple[str, str]]):
         """
         this is the method to add constants into
         the original constants in the registry
         :param new_constants: a set of new constants that need to be added
         """
         # "|" is the join operator, kind of like '+' for set
-        cls.__constants_set__ |= new_constants
+        cls.__constants_set__ |= set(new_constants)
 
     @classmethod
     def get_output_configs(cls) -> Set[Dict[str, str]]:
@@ -61,10 +63,15 @@ class CommonRegister:  # a static class with all the common registers
         return cls.__output_configs__
 
     @classmethod
-    def register_output_configs(cls, output_config: Set[Dict[str, str]]):
+    def register_output_configs(cls, output_configs: Iterable[Dict[str, str]]):
         """
         add some new output configs to existing ones
-        :param output_config: a set of new output configs
+        :param output_configs: a set of new output configs
         """
+
+        # freeze configs(dict) so that they can be in a set
+        # (dict is mutable) therefore not hashable
+        frozen_configs = [frozendict(config) for config in output_configs]
+
         # "|" is the join operator, kind of like '+' for set
-        cls.__output_configs__ |= output_config
+        cls.__output_configs__ |= set(frozen_configs)
