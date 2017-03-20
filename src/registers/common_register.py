@@ -99,6 +99,9 @@ class CommonRegister:  # a static class with all the common registers
         get a yaml string header
         :return: the yaml string (dumped from the registered header)
         """
-        return yaml.safe_dump(cls.__header_dict__,
-                              explicit_start=True,
-                              explicit_end=True)
+        if not cls.__header_dict__:
+            return ''
+        else:
+            return yaml.safe_dump(cls.__header_dict__,
+                                  explicit_start=True,
+                                  explicit_end=True)
