@@ -33,15 +33,15 @@ class HeaderCompiler(HeaderModel, BaseCompiler):
         """
         # try to delete constants
         try:
-            del self.__whole_header_dict__['constants']
+            del self.__header_dict__['constants']
         except KeyError:
             pass
         # try to delete output
         try:
-            del self.__whole_header_dict__['output']
+            del self.__header_dict__['output']
         except KeyError:
             pass
 
-        return yaml.safe_dump(self.__whole_header_dict__,
+        return yaml.safe_dump(self.__header_dict__,
                               explicit_start=True,
                               explicit_end=True)
