@@ -17,10 +17,12 @@ def const_compile(document: str) -> str:
         # find the reference pattern and the string to replace it with
         reference_pattern = ORIG_CONST_REGEX_FORMAT.format(
             label=const_tuple[0])
-        replace_str = re.escape(const_tuple[1])
+        # use lambda to escape characters in const_tuple[1]
+        # like \1 or \
+        replace_func = lambda x: const_tuple[1]
 
         # replace everything in that document
         document = re.sub(pattern=reference_pattern,
-                          repl=replace_str, string=document)
+                          repl=replace_func, string=document)
 
     return document
