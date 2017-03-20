@@ -1,5 +1,6 @@
 from typing import Set, Dict, Tuple, Iterable
 
+import yaml
 from frozendict import frozendict
 
 from src.helpers.constants import RESET_YAML_HEADER_ERROR
@@ -81,7 +82,22 @@ class CommonRegister:  # a static class with all the common registers
 
     @classmethod
     def register_yaml_header_dict(cls, header_dict: dict):
+        """
+        register a yaml header in the register.
+        when one header is registered, you cannot register another
+        :param header_dict: the loaded yaml header
+        """
         if cls.__header_dict__:
             raise TypeError(RESET_YAML_HEADER_ERROR)
         else:
             cls.__header_dict__ = header_dict
+
+    @classmethod
+    def get_yaml_header(cls) -> str:
+        """
+        get a yaml string header
+        :return: the yaml string (dumped from the registered header)
+        """
+        return yaml.safe_dump(cls.__header_dict__,
+                              explicit_start=True,
+                              explicit_end=True)
