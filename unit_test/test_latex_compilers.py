@@ -105,7 +105,7 @@ class TestMainCompiler:
             mdac_content = f.read()
             compiled_res = compile_to_pandoc(mdac_content)
 
-        with open('./unit_test/resources/testres.mdac', encoding='utf-8') as f:
+        with open('./unit_test/resources/testres.md', encoding='utf-8') as f:
             exp_res = f.read()
 
         assert compiled_res == exp_res
