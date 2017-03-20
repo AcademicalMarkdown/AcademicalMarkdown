@@ -2,11 +2,14 @@ from typing import Set, Dict, Tuple, Iterable
 
 from frozendict import frozendict
 
+from src.helpers.constants import RESET_YAML_HEADER_ERROR
+
 
 class CommonRegister:  # a static class with all the common registers
     __label_set__ = set()  # this is all the labels
     __constants_set__ = set()  # this is all the constants
     __output_configs__ = set()  # this is the output setting on the header
+    __header_dict__ = {}
 
     @classmethod
     def __clear__(cls):
@@ -75,3 +78,10 @@ class CommonRegister:  # a static class with all the common registers
 
         # "|" is the join operator, kind of like '+' for set
         cls.__output_configs__ |= set(frozen_configs)
+
+    @classmethod
+    def register_yaml_header_dict(cls, header_dict: dict):
+        if cls.__header_dict__:
+            raise TypeError(RESET_YAML_HEADER_ERROR)
+        else:
+            cls.__header_dict__ = header_dict

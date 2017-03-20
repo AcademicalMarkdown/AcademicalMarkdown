@@ -51,6 +51,7 @@ class HeaderModel(BaseModel):
         :param input_dict: the loaded yaml header
         """
         self.__header_dict__ = input_dict
+        CommonRegister.register_yaml_header_dict(self.__header_dict__)
 
         try:
             self.__load_constants__(header_dict=input_dict)

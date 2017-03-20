@@ -85,3 +85,6 @@ YAML_PARSE_ERROR_FORMAT = \
 COMPILER_LOAD_ERROR_FORMAT = \
     'following error encountered while interpreting {yaml_block}:' \
     '\n{error_message}'
+RESET_YAML_HEADER_ERROR = \
+    'there can be only one yaml header exists in document, ' \
+    'you cannot set yaml header twice'
