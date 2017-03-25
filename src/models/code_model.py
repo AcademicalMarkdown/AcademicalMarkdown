@@ -31,9 +31,10 @@ class CodeModel(BaseModel):
         self.content = content
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> str:
         """
-        this function returns the parameters that support positional parameter
-        :return: content is the first positional parameter
+        this function tells you the 'content' parameter is in the content block
+        see base_model for more information on content_block
+        :return: the content block implicitly specify the content parameter
         """
-        return ['content']
+        return 'content'

@@ -39,9 +39,10 @@ class FigureModel(BaseModel):
         self.code = code
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> str:
         """
-        this function returns the parameters that support positional parameter
-        :return: no parameter support positional
+        this function tells you the 'code' parameter is in the content block
+        see base_model for more information on content block
+        :return: the content block implicitly specify the code parameter
         """
-        return ['code']
+        return 'code'

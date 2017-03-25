@@ -71,9 +71,10 @@ class HeaderModel(BaseModel):
         self.output_configs = outputs
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> None:
         """
-        all the positional parameters of this block
-        :return: for this block there is no positional parameter
+        there cannot be any data in the content block
+        see base_model for more information on content_block
+        :return: no parameter support content block
         """
-        return []
+        return None

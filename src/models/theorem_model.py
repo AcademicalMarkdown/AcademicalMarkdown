@@ -26,10 +26,10 @@ class TheoremModel(BaseModel):
         self.theorem_type = theorem_type
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> str:
         """
-        this function returns the parameters that support positional parameter
-        :return: content is the first positional
-                    theorem_type is the second positional parameter
+        this function tells you the 'content' parameter is in the content block
+        see base_model for more information on content_block
+        :return: the content block implicitly specify the content parameter
         """
-        return ["content"]
+        return "content"

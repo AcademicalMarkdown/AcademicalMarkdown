@@ -10,7 +10,7 @@ class BaseCompiler(BaseModel):
         raise NotImplementedError
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> list:
         """
         this is inherited from BaseModel, see models/base_model.py for more
         """

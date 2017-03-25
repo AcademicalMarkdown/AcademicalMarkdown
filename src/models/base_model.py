@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class BaseModel:
     def __init__(self):
         """
@@ -28,10 +31,19 @@ class BaseModel:
         raise NotImplementedError
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> Union[str, None]:
         """
         this function is a prototype.
-        this function returns the parameters that support positional parameter
-        :return: empty list
+        this function gives a string that represent the name of the content 
+        property, that can be directly write in the content block
+        
+        Example:
+        ==== block_type
+        content_block
+        ---
+        meta_block
+        ====
+        
+        you can see all the block of mdac grammar 
         """
         raise NotImplementedError

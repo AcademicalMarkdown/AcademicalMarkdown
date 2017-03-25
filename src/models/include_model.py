@@ -18,9 +18,10 @@ class IncludeModel(BaseModel):
         self.file = file
 
     @staticmethod
-    def get_positional() -> list:
+    def get_content_data_name() -> str:
         """
-        this function returns the parameters that support positional parameter
-        :return: no parameter support positional
+        this function tells you the 'file' parameter is in the content block
+        see base_model for more information on content_block
+        :return: the content block implicitly specify the file parameter
         """
-        return ['file']
+        return 'file'
