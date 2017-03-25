@@ -59,7 +59,7 @@ MDAC_BLOCK_REGEX = re.compile(r"""
                     # group 3, match the content_block 
                     (.*?)
                     # group 4, match contents starting with '---'
-                    # indicating the meta_block
+                    # indicating the meta_block, optional block 
                     (^---.*?)?
                     # repeat group 1, this means equal number of '=' with 
                     # group 1.
@@ -109,3 +109,13 @@ COMPILER_LOAD_ERROR_FORMAT = \
 RESET_YAML_HEADER_ERROR = \
     'there can be only one yaml header exists in document, ' \
     'you cannot set yaml header twice'
+
+# ======================= Pandoc Defaults ===============================
+PANDOC_CONFIG_DEFAULTS = {
+    'latex': {
+        'listing': True,
+        'filter': "pandoc-citeproc",
+        'toc': True,
+        'number-sections': True
+    }
+}
