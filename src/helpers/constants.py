@@ -49,6 +49,24 @@ COMPILED_PAGE_REF_REGEX_FORMAT = r"\1\\pageref{{{label}}}"
 ORIG_CONST_REGEX_FORMAT = r"(?<!\\)(\\\\)*?\[@{label}\]"
 
 # ======================== main compiler section =========================
+MDAC_BLOCK_REGEX = re.compile(r"""
+                    # group 1, match 3 to 15 '=' on the start of a line 
+                    # indicating beginning of a block
+                    ^(={3,15})
+                    # group 2, match a word starts with space 
+                    # indicating the block type 
+                    (\ *\w*)
+                    # group 3, match the content_block 
+                    (.*?)
+                    # group 4, match contents starting with '---'
+                    # indicating the meta_block
+                    (^---.*?)?
+                    # repeat group 1, this means equal number of '=' with 
+                    # group 1.
+                    # indicating the end of the group
+                    ^\1
+                    """, re.VERBOSE | re.MULTILINE | re.DOTALL)
+
 YAML_HEADER_REGEX = re.compile(r"\A---(.*?)^[-.]{3}", re.MULTILINE | re.DOTALL)
 
 YAML_BLOCK_REGEX = re.compile(r"""
