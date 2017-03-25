@@ -1,4 +1,4 @@
-from src.models import code_model, constant_model, figure_model, \
+from src.models import code_model, figure_model, \
     include_model, table_model, theorem_model
 from unit_test.helpers.constants_for_test import *
 from unit_test.helpers.functions_for_test import *
@@ -48,46 +48,6 @@ class TestLoadDict:
             assert str(e) == "__construct__() got an unexpected" \
                              " keyword argument '{0}'".format(extra_key)
 
-    ###################################
-    #
-    # Testing Constant Model
-    def test_constant_model(self):
-        model = constant_model.ConstantModel()
-        model.load_dict(
-            input_dict=constant_test_dict
-        )
-
-        assert model.label == 'constant1'
-        assert model.content == 'this is the test to replace it with'
-
-    def test_constant_miss_para(self):
-        model = constant_model.ConstantModel()
-
-        miss_dict, miss_para = remove_one_para(
-            para_dict=constant_test_dict,
-            require_para_list=constant_req_para)
-        try:
-            model.load_dict(
-                input_dict=miss_dict
-            )
-        except TypeError as e:
-            assert str(e) == "__construct__() missing 1 required " \
-                             "positional argument: '{0}'".format(miss_para)
-
-    def test_constant_more_para(self):
-        model = constant_model.ConstantModel()
-        extra_dict, extra_key = add_one_para(
-            para_dict=constant_test_dict,
-            extra_para_list=other_para_list
-        )
-
-        try:
-            model.load_dict(
-                input_dict=extra_dict
-            )
-        except TypeError as e:
-            assert str(e) == "__construct__() got an unexpected" \
-                             " keyword argument '{0}'".format(extra_key)
 
     ###################################
     #
