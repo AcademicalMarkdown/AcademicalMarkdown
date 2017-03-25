@@ -1,9 +1,9 @@
 import re
-from typing import Union, List
 
 import yaml
+from typing import Union, List
 
-from src.compilers.common_compilers.base_compiler import BaseCompiler
+from src.compilers.base_compiler import BaseCompiler
 from src.compilers.common_compilers.constants_compiler import const_compile
 from src.compilers.common_compilers.header_compiler import HeaderCompiler
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex

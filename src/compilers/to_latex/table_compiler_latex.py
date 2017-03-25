@@ -1,10 +1,10 @@
 import codecs
 import csv
-from typing import List
 
 from tabulate import tabulate
+from typing import List
 
-from src.compilers.common_compilers.base_compiler import BaseCompiler
+from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_TABLE_FORMAT_STR, CSV_DELIMINATOR, \
     DECODE_ERROR_MESSAGE_FORMAT
 from src.models.table_model import TableModel

@@ -1,6 +1,6 @@
 import codecs
 
-from src.compilers.common_compilers.base_compiler import BaseCompiler
+from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_CODE_FORMAT_STR, \
     LATEX_CODE_LABEL_FORMAT
 from src.models.code_model import CodeModel

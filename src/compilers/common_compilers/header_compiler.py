@@ -1,6 +1,6 @@
 import yaml
 
-from src.compilers.common_compilers.base_compiler import BaseCompiler
+from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import YAML_PARSE_ERROR_FORMAT
 from src.models.header_model import HeaderModel
 
