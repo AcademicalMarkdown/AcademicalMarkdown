@@ -32,10 +32,11 @@ class BlockParser(BlockModel):
             # attempting to load meta block
             self.meta_dict = load_yaml(self.meta_block)
 
-    def parse(self, match_ob: tuple):
+    def parse_match_ob(self, match_obj_tuples: tuple):
         """
-        parse the block that is send in
-        :param match_ob: the block sent in to parse
+        parse the matched object that is send in
+        :param match_obj_tuples: a matched object created with MDAC_BLOCK_REGEX
+                            and then cast into tuples
         """
-        self.load_match_obj(match_ob)
+        self.load_match_obj(match_obj_tuples)
         self.convert_to_dict()

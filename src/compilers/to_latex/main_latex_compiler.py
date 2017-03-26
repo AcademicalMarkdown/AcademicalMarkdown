@@ -46,7 +46,7 @@ def __parse_yaml_block__(match_obj: tuple) -> BlockCompiler:
     :return: a block compiler that is loaded with data
     """
     compiler = BlockCompiler()
-    compiler.parse(match_obj)
+    compiler.parse_match_ob(match_obj)
 
     return compiler
 
