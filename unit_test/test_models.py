@@ -63,7 +63,6 @@ class TestLoadDict:
         assert model.caption == 'this is a image'
         assert model.width == '30'
         assert model.height == '20'
-        assert model.code == 'pass'
 
     def test_figure_miss_para(self):
         model = figure_model.FigureModel()
