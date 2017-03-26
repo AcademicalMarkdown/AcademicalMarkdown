@@ -10,6 +10,7 @@ other_para_list = [{'nuh': 'gosh'},
 code_test_dict_with_file = {'label': 'test_code',
                             'syntax': 'python',
                             'caption': 'this is a test code',
+                            'content': '',
                             'file': './unit_test/resources/resource.py'}
 # when user specify contnet in the code block
 code_test_dict_with_content = {'label': 'test_code',
@@ -17,7 +18,7 @@ code_test_dict_with_content = {'label': 'test_code',
                                'caption': 'this is a test code',
                                'content': 'Definition ayaya'}
 # the required parameter for code block
-code_req_para = ['syntax', 'caption']
+code_req_para = ['content']
 
 constant_test_dict = {'label': 'constant1',
                       'content': 'this is the test to '

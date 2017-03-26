@@ -14,8 +14,8 @@ class CodeModel(BaseModel):
         self.file = ""
         self.content = ""
 
-    def __construct__(self, syntax: str, caption: str,
-                      file: str = "", content: str = "", label: str = ""):
+    def __construct__(self, content: str, syntax: str = '', caption: str = '',
+                      file: str = "", label: str = ""):
         """
         this function puts value into the class
         :param label: the label of the code for cross ref
