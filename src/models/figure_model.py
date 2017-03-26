@@ -45,4 +45,4 @@ class FigureModel(BaseModel):
         see base_model for more information on content block
         :return: the content block implicitly specify the code parameter
         """
-        return 'code'
+        return 'source'
