@@ -10,6 +10,11 @@ class BlockParser(BlockModel):
         self.meta_dict = {}  # the dict converted by meta_block
 
     def load_match_obj(self, match_obj: Tuple[str]):
+        """
+        load the data match obj into the object
+        :param match_obj: a match object created by MDAC_BLOCK_REGEX
+                            and then casts into tuples
+        """
         # extract data from match,
         # see constant -> MDAC_BLOCK_REGEX for more info
         block_type = match_obj[1].strip().lower()
