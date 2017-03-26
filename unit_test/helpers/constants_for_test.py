@@ -31,6 +31,7 @@ include_test_dict = {'file': 'src/test.md'}
 include_req_para = ['file']
 
 table_test_dict_with_file = {'file': './unit_test/resources/test.csv',
+                             'content': '',
                              'top_header': True,
                              'caption': 'this is a table',
                              'label': 'tbl: testTable'}
