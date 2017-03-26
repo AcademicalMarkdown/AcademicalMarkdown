@@ -28,7 +28,7 @@ class BlockCompiler(BlockParser, BaseCompiler):
         :return: whether self.compiler uses raw_data
         """
         self.__find_compiler__()
-        return self.compiler.use_raw_data()
+        return self.compiler.use_raw_data
 
     def __find_compiler__(self):
         """
@@ -47,7 +47,7 @@ class BlockCompiler(BlockParser, BaseCompiler):
             if len(matches) == 1:
                 self.compiler = self.type_to_compiler_dict[matches[0]]
             # nothing matches the type you give
-            if len(matches) == 0:
+            elif len(matches) == 0:
                 raise KeyError
             # more than one thing matches the type you give
             else:
@@ -61,8 +61,9 @@ class BlockCompiler(BlockParser, BaseCompiler):
         content_para = self.compiler.get_content_data_name()
 
         # add the content block to meta dict
-        self.compiler_dict = self.meta_dict.update(
-            {content_para, self.content_block}
+        self.compiler_dict = self.meta_dict.copy()
+        self.compiler_dict.update(
+            {content_para: self.content_block}
         )
 
     def compile(self) -> str:

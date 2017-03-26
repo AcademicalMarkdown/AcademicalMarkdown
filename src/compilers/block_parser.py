@@ -1,6 +1,5 @@
-import re
+from typing import Tuple
 
-from src.helpers.constants import MDAC_BLOCK_REGEX
 from src.helpers.general_function import load_yaml
 from src.models.block_model import BlockModel
 
@@ -10,19 +9,15 @@ class BlockParser(BlockModel):
         super().__init__()
         self.meta_dict = {}  # the dict converted by meta_block
 
-    def load_mdac_block(self, block_str: str):
-        """
-        this function load the mdac block into the current object
-        :param block_str: the string that we want to load
-        """
-        match = re.match(pattern=MDAC_BLOCK_REGEX,
-                         string=block_str)
-
+    def load_match_obj(self, match_obj: Tuple[str]):
         # extract data from match,
         # see constant -> MDAC_BLOCK_REGEX for more info
-        block_type = match.group(2).strip().lower()
-        content_block = match.group(3)
-        meta_block = match.group(4)
+        block_type = match_obj[1].strip().lower()
+        content_block = match_obj[2].strip()
+        try:
+            meta_block = match_obj[3]
+        except IndexError:
+            meta_block = ''
 
         # construct the object
         self.__construct__(block_type=block_type,
@@ -37,10 +32,10 @@ class BlockParser(BlockModel):
             # attempting to load meta block
             self.meta_dict = load_yaml(self.meta_block)
 
-    def parse(self, block_str: str):
+    def parse(self, match_ob: tuple):
         """
         parse the block that is send in
-        :param block_str: the block sent in to parse
+        :param match_ob: the block sent in to parse
         """
-        self.load_mdac_block(block_str)
+        self.load_match_obj(match_ob)
         self.convert_to_dict()
