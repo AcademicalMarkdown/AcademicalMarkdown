@@ -35,7 +35,7 @@ table_test_dict_with_file = {'file': './unit_test/resources/test.csv',
                              'top_header': True,
                              'caption': 'this is a table',
                              'label': 'tbl: testTable'}
-table_req_para = ['top_header', 'caption']
+table_req_para = ['content']
 
 theorem_test_dict = {'label': 'thm:maxwell eq',
                      'content': 'great theorem',
