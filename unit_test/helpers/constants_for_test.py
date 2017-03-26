@@ -20,11 +20,6 @@ code_test_dict_with_content = {'label': 'test_code',
 # the required parameter for code block
 code_req_para = ['content']
 
-constant_test_dict = {'label': 'constant1',
-                      'content': 'this is the test to '
-                                 'replace it with'}
-constant_req_para = ['label', 'content']
-
 figure_test_dict = {'label': 'fig:figid',
                     'source': './image/git.png',
                     'caption': 'this is a image',
