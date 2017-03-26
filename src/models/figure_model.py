@@ -10,7 +10,6 @@ class FigureModel(BaseModel):
         """
         super().__init__()
         self.__use_raw_data__ = False
-        self.code = ""
         self.label = ""
         self.source = ""
         self.caption = ""
@@ -20,11 +19,9 @@ class FigureModel(BaseModel):
     def __construct__(self, source: str, caption: str,
                       width: Union[str, int] = '',
                       height: Union[str, int] = '',
-                      code: str = '', label: str = ''):
+                      label: str = ''):
         """
         this function is used to construct current class
-        :param code: the code to exec will compile,
-                        you can use this to generate the figure you want to use
         :param label: the label of the figure to cross ref
         :param source: the image source, can be both web and local
         :param caption: the caption of current figure
@@ -36,7 +33,6 @@ class FigureModel(BaseModel):
         self.caption = caption
         self.width = str(width)
         self.height = str(height)
-        self.code = code
 
     @staticmethod
     def get_content_data_name() -> str:
