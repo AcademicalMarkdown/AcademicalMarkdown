@@ -48,7 +48,6 @@ class TestLoadDict:
             assert str(e) == "__construct__() got an unexpected" \
                              " keyword argument '{0}'".format(extra_key)
 
-
     ###################################
     #
     # Testing Figure Model

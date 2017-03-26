@@ -9,8 +9,8 @@ class BlockModel(BaseModel):
         content_block
         ---
         meta_block
-        ===== 
-        
+        =====
+
         meta_block and the leading "---" is optional
         """
         super().__init__()
@@ -24,7 +24,7 @@ class BlockModel(BaseModel):
         the function used to put value nto class
         :param content_block: the content inside the content block
         :param meta_block: the meta data block, in yaml format, optional
-        :param block_type: the type of current block. if none specified, regard 
+        :param block_type: the type of current block. if none specified, regard
                             current block as code block
         """
         self.block_type = block_type
