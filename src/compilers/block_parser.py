@@ -20,7 +20,7 @@ class BlockParser(BlockModel):
 
         # extract data from match,
         # see constant -> MDAC_BLOCK_REGEX for more info
-        block_type = match.group(2)
+        block_type = match.group(2).strip()
         content_block = match.group(3)
         meta_block = match.group(4)
 
