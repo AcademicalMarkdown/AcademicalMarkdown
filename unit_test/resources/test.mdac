@@ -22,93 +22,95 @@ abstract: |
 
 ## use raw
 
-%---
-code:
-    - |
-      for i in range([@testLabel])
-      %---embed\---%
-      test backslash \\
-    - label: raw code
-    - syntax: python
-    - caption: this is a test
----%
+==== code
+for i in range([@testLabel])
+  %---embed\---%
+  test backslash \\
+---
+label: raw code
+syntax: python
+caption: this is a test
+====
 
 ## use file
 
-%---
-code:
-    file: ./unit_test/resources/resource.py
-    syntax: python
-    caption: testing 2
----%
+==== code
+
+---
+file: ./unit_test/resources/resource.py
+syntax: python
+caption: testing 2
+====
 
 
 # test figure
 
 
-%---
-figure:
-    source: ./image/figure.jpg
-    caption: testing figure
-    width: 30%
-    height: 20
----%
+=== fig
+./image/figure.jpg
+---
+
+caption: testing figure
+width: 30%
+height: 20
+===
 
 # test include
 
-%--- 
-include: 
-    - ./unit_test/resources/test.csv
----%
+=== include 
+./unit_test/resources/test.csv
+===
 
 # test table
 
 ## with file
 
-%---
-table:
-    - file: ./unit_test/resources/test.csv
-    - top_header: yes
-    - caption: testing table
-    - label: tbl:test
----%
+=== table
+
+---
+file: ./unit_test/resources/test.csv
+top_header: yes
+caption: testing table
+label: tbl:test
+===
 
 ## with content
 
-%---
-table:
-    - |
-        +---------------+---------------+--------------------+
-        | Fruit         | Price         | Advantages         |
-        +===============+===============+====================+
-        | Bananas       | $1.34         | - built-in wrapper |
-        |               |               | - bright color     |
-        +---------------+---------------+--------------------+
-        | Oranges       | $2.10         | - cures scurvy     |
-        |               |               | - tasty            |
-        +---------------+---------------+--------------------+
-    - caption: I am excited
-    - label: great table!
----%
+=== table
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+---
+caption: I am excited
+label: great table!
+===
 
 # test theorem
 
 ## theorem
 
-%---
-theorem:
-    - this is a great theorem
-    - label: tremendous
----%
+===theorem
+this is a great theorem
+
+---
+label: tremendous
+===
 
 ## lemma
 
-%---
-theorem:
-    - this is a great theorem
-    - label: tremendous 2
-    - theorem_type: MARKDOWN!
----%
+=== theorem
+this is a great theorem
+---
+label: tremendous 2
+theorem_type: MARKDOWN!
+===
 
 
 # test ref
@@ -124,12 +126,12 @@ page ref [p@tremendous 2]
 
 see later theorem [@later_theorem]
 
-%---
-theorem:
-    - another a great theorem
-    - label: later_theorem
-    - theorem_type: testing
----%
+===theorem
+another a great theorem
+---
+label: later_theorem
+theorem_type: testing
+===
 
 
 # test escape

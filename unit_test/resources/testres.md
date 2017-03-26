@@ -25,9 +25,8 @@ title: 'This is the title: it contains a colon'
 
 ~~~~{ .python caption="this is a test" label="raw code" }
 for i in range([@testLabel])
-%---embed\---%
-test backslash \\
-
+  %---embed\---%
+  test backslash \\
 ~~~~
 
 
@@ -83,7 +82,6 @@ testing  2
 | Oranges       | $2.10         | - cures scurvy     |
 |               |               | - tasty            |
 +---------------+---------------+--------------------+
-
 
 : I am excited \label{great table!}
 
