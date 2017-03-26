@@ -16,7 +16,7 @@ class FigureModel(BaseModel):
         self.width = ""
         self.height = ""
 
-    def __construct__(self, source: str, caption: str,
+    def __construct__(self, source: str, caption: str = '',
                       width: Union[str, int] = '',
                       height: Union[str, int] = '',
                       label: str = ''):

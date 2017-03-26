@@ -25,7 +25,7 @@ figure_test_dict = {'label': 'fig:figid',
                     'caption': 'this is a image',
                     'width': '30',
                     'height': '20'}
-figure_req_para = ['source', 'caption']
+figure_req_para = ['source']
 
 include_test_dict = {'file': 'src/test.md'}
 include_req_para = ['file']
