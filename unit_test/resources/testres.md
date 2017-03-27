@@ -46,7 +46,7 @@ print(resource())
 ## minimal
 
 
-~~~~{ . caption=""  }
+~~~~{    }
 for i in range(10):
     return i
 ~~~~

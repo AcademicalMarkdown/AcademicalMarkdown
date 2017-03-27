@@ -2,7 +2,8 @@ import codecs
 
 from src.compilers.base_compiler import BaseCompiler
 from src.helpers.constants import LATEX_CODE_FORMAT_STR, \
-    LATEX_CODE_LABEL_FORMAT
+    LATEX_CODE_LABEL_FORMAT, LATEX_CODE_CAPTION_FORMAT, \
+    LATEX_CODE_SYNTAX_FORMAT
 from src.models.code_model import CodeModel
 from src.registers.common_register import CommonRegister
 
@@ -34,11 +35,15 @@ class CodeCompilerLatex(CodeModel, BaseCompiler):
         # construct parameters
         label_str = LATEX_CODE_LABEL_FORMAT.format(label=self.label) \
             if self.label else ""
+        caption_str = LATEX_CODE_CAPTION_FORMAT.format(caption=self.caption) \
+            if self.caption else ''
+        syntax_str = LATEX_CODE_SYNTAX_FORMAT.format(syntax=self.syntax) \
+            if self.syntax else ''
 
         # return the pandoc code that can be convert to latex
         return LATEX_CODE_FORMAT_STR.format(
-            syntax=self.syntax,
-            caption=self.caption,
+            syntax=syntax_str,
+            caption=caption_str,
             label=label_str,
             content=self.content
         )

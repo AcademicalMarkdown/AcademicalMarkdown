@@ -5,11 +5,13 @@ CSV_DELIMINATOR = ","
 
 # ======================== code compile section ==========================
 LATEX_CODE_FORMAT_STR = '''
-~~~~{{ .{syntax} caption="{caption}" {label} }}
+~~~~{{ {syntax} {caption} {label} }}
 {content}
 ~~~~
 '''
 LATEX_CODE_LABEL_FORMAT = "label=\"{label}\""
+LATEX_CODE_CAPTION_FORMAT = "caption=\"{caption}\""
+LATEX_CODE_SYNTAX_FORMAT = ".{syntax}"
 
 # ======================= figure compile section =========================
 
