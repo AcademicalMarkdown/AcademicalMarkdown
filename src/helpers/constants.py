@@ -127,3 +127,12 @@ PANDOC_CONFIG_DEFAULTS = {
         'number-sections': True
     }
 }
+
+DEFAULT_FILE_NAME_FORMAT_DICT = {
+    'pdf': '{file_name}.pdf',
+    'latex': '{file_name}.tex',
+    'beamer': '{file_name}.pdf',
+    'html': '{file_name}.pdf',
+    'gfm_md': '{file_name}.md',
+    'pandoc_md': '{file_name}.md'
+}

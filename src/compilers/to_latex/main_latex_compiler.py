@@ -182,16 +182,15 @@ def post_compile(mdac_content: str) -> str:
     return yaml_header + theorem_header + mdac_content
 
 
-def compile_to_pandoc_for_latex(mdac_content: str) -> str:
+def compile_to_pandoc_for_latex(pre_compile_res: str) -> str:
     """
     this function compiles the mdac (markdown for academia) to pandoc documents
     that is capable of converting to latex
-    :param mdac_content: the content of the mdac file
+    :param pre_compile_res: the pre compile result
     :return: a pandoc document
     """
 
-    pre_compiled_document = pre_compile(mdac_content)
-    main_compiled = main_compile(pre_compiled_document)
+    main_compiled = main_compile(pre_compile_res)
     final_document = post_compile(main_compiled)
 
     return final_document
