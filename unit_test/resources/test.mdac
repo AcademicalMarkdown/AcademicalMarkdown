@@ -42,17 +42,31 @@ syntax: python
 caption: testing 2
 ====
 
+## minimal
+
+=== code 
+for i in range(10):
+    return i
+===
+
 
 # test figure
 
+## regular
 
 === fig
-./image/figure.jpg
+./image/figure.PNG
 ---
 
 caption: testing figure
 width: 30%
 height: 20
+===
+
+## minimal
+
+=== fig
+./image/figure.PNG
 ===
 
 # test include
@@ -92,6 +106,21 @@ caption: I am excited
 label: great table!
 ===
 
+## minimal
+
+=== table
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+===
+
 # test theorem
 
 ## theorem
@@ -110,6 +139,12 @@ this is a great theorem
 ---
 label: tremendous 2
 theorem_type: MARKDOWN!
+===
+
+## minimal
+
+=== the
+this is another great theorem
 ===
 
 

@@ -43,11 +43,25 @@ print(resource())
 ~~~~
 
 
+## minimal
+
+
+~~~~{ . caption=""  }
+for i in range(10):
+    return i
+~~~~
+
+
 
 # test figure
 
+## regular
 
-![testing figure](./image/figure.jpg){  width=30% height=20 }
+![testing figure](./image/figure.PNG){  width=30% height=20 }
+
+## minimal
+
+![](./image/figure.PNG){    }
 
 # test include
 
@@ -85,6 +99,21 @@ testing  2
 
 : I am excited \label{great table!}
 
+## minimal
+
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+:  \label{}
+
 # test theorem
 
 ## theorem
@@ -102,6 +131,14 @@ this is a great theorem
 \label{tremendous 2}
 this is a great theorem
 \end{MARKDOWN!}
+
+## minimal
+
+
+\begin{Theorem}
+\label{}
+this is another great theorem
+\end{Theorem}
 
 
 # test ref
