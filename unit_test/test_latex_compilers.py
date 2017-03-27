@@ -1,7 +1,8 @@
+from src.compilers.common_compilers.precompiler import pre_compile
 from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
 from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
 from src.compilers.to_latex.main_latex_compiler import \
-    compile_to_pandoc_for_latex, pre_compile
+    compile_to_pandoc_for_latex
 from src.compilers.to_latex.refrence_compiler import compile_ref
 from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
 from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex

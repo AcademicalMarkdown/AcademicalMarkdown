@@ -3,8 +3,9 @@ import logging
 import pypandoc
 from typing import Tuple, Union
 
+from src.compilers.common_compilers.precompiler import pre_compile
 from src.compilers.to_latex.main_latex_compiler import \
-    compile_to_pandoc_for_latex, pre_compile
+    compile_to_pandoc_for_latex
 from src.helpers.constants import PANDOC_CONFIG_DEFAULTS, \
     DEFAULT_FILE_NAME_FORMAT_DICT
 from src.registers.common_register import CommonRegister
