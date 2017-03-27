@@ -1,7 +1,6 @@
-from typing import Set, Dict, Tuple, Iterable
-
 import yaml
 from frozendict import frozendict
+from typing import Set, Dict, Tuple, Iterable, List
 
 from src.helpers.constants import RESET_YAML_HEADER_ERROR
 
@@ -60,12 +59,12 @@ class CommonRegister:  # a static class with all the common registers
         cls.__constants_set__ |= set(new_constants)
 
     @classmethod
-    def get_output_configs(cls) -> Set[Dict[str, str]]:
+    def get_output_configs(cls) -> List[Dict[str, str]]:
         """
         get the output configs
         :return: the private __output_configs__
         """
-        return cls.__output_configs__
+        return [config._dict.copy() for config in cls.__output_configs__]
 
     @classmethod
     def register_output_configs(cls, output_configs: Iterable[Dict[str, str]]):
