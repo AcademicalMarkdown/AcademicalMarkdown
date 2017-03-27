@@ -29,9 +29,9 @@ def __invoke_pandoc__(input_content: str, output_format: str,
                       extra_args: dict, output_file: str, default: dict):
     """
     invoke pandoc via pypandoc.
-    :param output_file: the file name of the output file 
+    :param output_file: the file name of the output file
     :param default: the default argument dict.
-                    the key is long name of the para, the 
+                    the key is long name of the para, the
     :param input_content: the markdown content ready to be compiled
     :param output_format: a string indicate the output format of the file
                             like 'beamer', 'pdf', 'html')
@@ -43,7 +43,7 @@ def __invoke_pandoc__(input_content: str, output_format: str,
         a helper that converts the a arg tuple into regular command line arg
         :param arg: a tuple, where the first is the long name of the argument
                     the second is the value of the argument
-        :return: if the second one is a bool, 
+        :return: if the second one is a bool,
         """
         # extract info from arg
         arg_name = arg[0]
@@ -84,7 +84,7 @@ def __load_default__(output_format: str) -> dict:
     """
     return the default configuration of current output format
     :param output_format: a string representing the output format
-    :return: a dict which key is the parameter long name, the value is the 
+    :return: a dict which key is the parameter long name, the value is the
                 value of the parameter
     """
     # get the default config dict
@@ -168,7 +168,7 @@ def __get_compile_function__(output_format: str):
 
 def __compile_with_reg_data__(mdac_file: str):
     """
-    compile the mdac document using information about the output config in the 
+    compile the mdac document using information about the output config in the
     common register
     :param mdac_file: the md file that needed to be converted by pandoc
     """
@@ -212,7 +212,7 @@ def __compile_with_reg_data__(mdac_file: str):
 def main(input_file, output_file='', output_format='', extra_args=None):
     """
     the main process
-    :param input_file: the path of input mdac file 
+    :param input_file: the path of input mdac file
     :param output_file: the output file full path
     :param output_format: the output format of the file
     :param extra_args: a list of extra arguments provided to pandoc
