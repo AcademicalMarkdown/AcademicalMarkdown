@@ -11,7 +11,6 @@ output:
     - format: pdf
       output: lahahaha.pdf
       latex-engine: pdflatex
-    - format: HTML
 abstract: |
       This is the abstract.
       It consists of two paragraphs.

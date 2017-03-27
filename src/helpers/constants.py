@@ -119,5 +119,11 @@ PANDOC_CONFIG_DEFAULTS = {
         'filter': "pandoc-citeproc",
         'toc': True,
         'number-sections': True
+    },
+    'pdf': {
+        'listing': True,
+        'filter': "pandoc-citeproc",
+        'toc': True,
+        'number-sections': True
     }
 }
