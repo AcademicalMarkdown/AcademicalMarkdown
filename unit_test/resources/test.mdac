@@ -8,10 +8,10 @@ constants:
     test: test1
     test1: test 2
 output:
-    - format: latex
-      default: true
+    - format: pdf
+      output: lahahaha.pdf
+      latex-engine: pdflatex
     - format: HTML
-      default: true
 abstract: |
       This is the abstract.
       It consists of two paragraphs.
