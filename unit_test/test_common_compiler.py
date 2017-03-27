@@ -1,5 +1,4 @@
 import yaml
-from frozendict import frozendict
 
 from src.compilers.common_compilers.constants_compiler import const_compile
 from src.compilers.common_compilers.header_compiler import HeaderCompiler
@@ -18,7 +17,7 @@ class TestHeaderCompiler:
         )
 
         exp_const = {('test', 'test1'), ('test1', 'test 2')}
-        exp_output_conf = set()
+        exp_output_conf = []
         assert CommonRegister.get_constants_set() == exp_const
         assert CommonRegister.get_output_configs() == exp_output_conf
 
@@ -47,8 +46,8 @@ abstract: |
         )
 
         exp_const = set()
-        exp_output_conf = {frozendict({'format': 'latex', 'default': True}),
-                           frozendict({'format': 'HTML', 'default': True})}
+        exp_output_conf = [{'format': 'latex', 'default': True},
+                           {'format': 'HTML', 'default': True}]
         assert CommonRegister.get_constants_set() == exp_const
         assert CommonRegister.get_output_configs() == exp_output_conf
 
