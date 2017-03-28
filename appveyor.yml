@@ -33,7 +33,7 @@ test_script:
   - "codecov"
 
 build_script:
-  - "python.exe freezer.py bdist_msi -s"
+  - "python.exe freezer.py build_exe -s"
 
 artifacts:
   - path: ".\\build"
