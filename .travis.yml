@@ -11,4 +11,4 @@ script:
     - "pytest --cov=./"
     - "pycodestyle . --show-source --show-pep8"
     - "codecov"
-    - "python ./freezer.py build"
+    - "python ./freezer.py build -s"
