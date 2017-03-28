@@ -3,7 +3,7 @@ import sys
 from fire import Fire
 
 from info import PROJECT_ROOT_PATH
-from markdown_for_academia.__main__ import main
+from mdac.__main__ import main
 
 if __name__ == '__main__':
     sys.path.append(PROJECT_ROOT_PATH)

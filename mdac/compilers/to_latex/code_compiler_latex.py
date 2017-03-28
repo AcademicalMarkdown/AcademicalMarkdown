@@ -1,11 +1,11 @@
 import codecs
 
-from markdown_for_academia.compilers.base_compiler import BaseCompiler
-from markdown_for_academia.helpers.constants import LATEX_CODE_FORMAT_STR, \
+from mdac.compilers.base_compiler import BaseCompiler
+from mdac.helpers.constants import LATEX_CODE_FORMAT_STR, \
     LATEX_CODE_LABEL_FORMAT, LATEX_CODE_CAPTION_FORMAT, \
     LATEX_CODE_SYNTAX_FORMAT
-from markdown_for_academia.models.code_model import CodeModel
-from markdown_for_academia.registers.common_register import CommonRegister
+from mdac.models.code_model import CodeModel
+from mdac.registers.common_register import CommonRegister
 
 
 class CodeCompilerLatex(CodeModel, BaseCompiler):

@@ -1,14 +1,14 @@
-from markdown_for_academia.compilers.base_compiler import BaseCompiler
-from markdown_for_academia.compilers.block_parser import BlockParser
-from markdown_for_academia.compilers.to_latex.code_compiler_latex import \
+from mdac.compilers.base_compiler import BaseCompiler
+from mdac.compilers.block_parser import BlockParser
+from mdac.compilers.to_latex.code_compiler_latex import \
     CodeCompilerLatex
-from markdown_for_academia.compilers.to_latex.figure_compiler_latex import \
+from mdac.compilers.to_latex.figure_compiler_latex import \
     FigureCompilerLatex
-from markdown_for_academia.compilers.to_latex.include_compiler_latex import \
+from mdac.compilers.to_latex.include_compiler_latex import \
     IncludeCompilerLatex
-from markdown_for_academia.compilers.to_latex.table_compiler_latex import \
+from mdac.compilers.to_latex.table_compiler_latex import \
     TableCompilerLatex
-from markdown_for_academia.compilers.to_latex.theorem_compiler_latex import \
+from mdac.compilers.to_latex.theorem_compiler_latex import \
     TheoremCompilerLatex
 
 

@@ -1,6 +1,6 @@
 from typing import Union
 
-from markdown_for_academia.models.base_model import BaseModel
+from mdac.models.base_model import BaseModel
 
 
 class FigureModel(BaseModel):

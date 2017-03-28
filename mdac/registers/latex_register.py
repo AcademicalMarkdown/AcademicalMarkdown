@@ -1,6 +1,6 @@
 from typing import Set
 
-from markdown_for_academia.helpers.constants import THEOREM_HEADER_FORMAT_STR
+from mdac.helpers.constants import THEOREM_HEADER_FORMAT_STR
 
 
 class LatexRegister:

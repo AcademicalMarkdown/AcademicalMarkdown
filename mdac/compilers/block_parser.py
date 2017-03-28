@@ -1,7 +1,7 @@
 from typing import Tuple
 
-from markdown_for_academia.helpers.general_function import load_yaml
-from markdown_for_academia.models.block_model import BlockModel
+from mdac.helpers.general_function import load_yaml
+from mdac.models.block_model import BlockModel
 
 
 class BlockParser(BlockModel):

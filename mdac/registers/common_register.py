@@ -2,7 +2,7 @@ import yaml
 from frozendict import frozendict
 from typing import Set, Dict, Tuple, Iterable, List
 
-from markdown_for_academia.helpers.constants import RESET_YAML_HEADER_ERROR
+from mdac.helpers.constants import RESET_YAML_HEADER_ERROR
 
 
 class CommonRegister:  # a static class with all the common registers

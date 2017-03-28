@@ -1,7 +1,7 @@
 from typing import Dict, List
 
-from markdown_for_academia.models.base_model import BaseModel
-from markdown_for_academia.registers.common_register import CommonRegister
+from mdac.models.base_model import BaseModel
+from mdac.registers.common_register import CommonRegister
 
 
 class HeaderModel(BaseModel):

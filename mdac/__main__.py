@@ -4,13 +4,13 @@ import pypandoc
 from fire import Fire
 from typing import Tuple, Union
 
-from markdown_for_academia.compilers.common_compilers.precompiler import \
+from mdac.compilers.common_compilers.precompiler import \
     pre_compile
-from markdown_for_academia.compilers.to_latex.main_latex_compiler import \
+from mdac.compilers.to_latex.main_latex_compiler import \
     compile_to_pandoc_for_latex
-from markdown_for_academia.helpers.constants import PANDOC_CONFIG_DEFAULTS, \
+from mdac.helpers.constants import PANDOC_CONFIG_DEFAULTS, \
     DEFAULT_FILE_NAME_FORMAT_DICT
-from markdown_for_academia.registers.common_register import CommonRegister
+from mdac.registers.common_register import CommonRegister
 
 
 def __validate_pandoc__():

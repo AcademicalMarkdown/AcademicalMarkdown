@@ -1,4 +1,4 @@
-import markdown_for_academia.helpers.general_function as gf
+import mdac.helpers.general_function as gf
 
 
 class TestUnescape:

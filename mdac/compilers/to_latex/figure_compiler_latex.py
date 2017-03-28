@@ -1,8 +1,8 @@
-from markdown_for_academia.compilers.base_compiler import BaseCompiler
-from markdown_for_academia.helpers.constants import LATEX_FIG_HEIGHT_FORMAT, \
+from mdac.compilers.base_compiler import BaseCompiler
+from mdac.helpers.constants import LATEX_FIG_HEIGHT_FORMAT, \
     LATEX_FIG_WIDTH_FORMAT, LATEX_FIG_LABEL_FORMAT, LATEX_FIGURE_FORMAT_STR
-from markdown_for_academia.models.figure_model import FigureModel
-from markdown_for_academia.registers.common_register import CommonRegister
+from mdac.models.figure_model import FigureModel
+from mdac.registers.common_register import CommonRegister
 
 
 class FigureCompilerLatex(FigureModel, BaseCompiler):

@@ -1,8 +1,8 @@
 import codecs
 
-from markdown_for_academia.compilers.base_compiler import BaseCompiler
-from markdown_for_academia.helpers.constants import DECODE_ERROR_MESSAGE_FORMAT
-from markdown_for_academia.models.include_model import IncludeModel
+from mdac.compilers.base_compiler import BaseCompiler
+from mdac.helpers.constants import DECODE_ERROR_MESSAGE_FORMAT
+from mdac.models.include_model import IncludeModel
 
 
 class IncludeCompilerLatex(IncludeModel, BaseCompiler):

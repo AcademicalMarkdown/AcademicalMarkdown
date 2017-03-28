@@ -2,7 +2,7 @@ import re
 
 import yaml
 
-from markdown_for_academia.helpers.constants import UNESCAPED_REGEX_SUB_LIST, \
+from mdac.helpers.constants import UNESCAPED_REGEX_SUB_LIST, \
     YAML_PARSE_ERROR_FORMAT
 
 

@@ -1,10 +1,10 @@
 import yaml
 
-from markdown_for_academia.compilers.common_compilers.constants_compiler import \
+from mdac.compilers.common_compilers.constants_compiler import \
     const_compile
-from markdown_for_academia.compilers.common_compilers.header_compiler import \
+from mdac.compilers.common_compilers.header_compiler import \
     HeaderCompiler
-from markdown_for_academia.registers.common_register import CommonRegister
+from mdac.registers.common_register import CommonRegister
 from unit_test.helpers.constants_for_test import test_yaml_with_minus_ending, \
     test_yaml_with_output_conf
 from unit_test.helpers.functions_for_test import list_eq_unorder
