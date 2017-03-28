@@ -57,12 +57,22 @@ MDAC_BLOCK_REGEX = re.compile(r"""
                     ^(={3,15})
                     # group 2, match a word starts with space
                     # indicating the block type
-                    (\ *\w*)
+                    # there can only be space follow that block type on that
+                    # line
+                    \ *(\w*)\ *$
+                    
                     # group 3, match the content_block
                     (.*?)
-                    # group 4, match contents starting with '---'
-                    # indicating the meta_block, optional block
-                    (^---.*?)?
+                    
+                    # group 4, match contents starting with '---'    
+                    (^---
+                    # indicating the meta_block, this is a non-matching group
+                    # (?!^={3,15}) means cannot match 3 to 15 numbers of '='
+                    # at the beginning of a line
+                    (?:(?!^={3,15}).)*?
+                    # end of group 4, group 4 is an optional block
+                    )?
+                    
                     # repeat group 1, this means equal number of '=' with
                     # group 1. followed by number of spaces
                     # indicating the end of the group
