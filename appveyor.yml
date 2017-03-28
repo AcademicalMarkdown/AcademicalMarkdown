@@ -16,7 +16,7 @@ environment:
 
 install:
   # We need wheel installed to build wheels
-  - "SET PATH=%PYTHON%\\scripts\\;%PATH%"
+  - "SET PATH=%PYTHON%\\scripts\\;%PYTHON%\\;%PATH%"
   - "pip install -r ./requirements.txt"
   - "pip install -r ./dev_requirements.txt"
 
@@ -33,4 +33,11 @@ test_script:
   - "pytest --cov=./"
   - "pycodestyle . --show-source --show-pep8"
   - "codecov"
+
+script:
+  - "python.exe freezer.py bdist_msi"
+
+artifacts:
+  - path: ".\\build"
+  - path: ".\\dist"
 
