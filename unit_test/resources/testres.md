@@ -13,6 +13,8 @@ title: 'This is the title: it contains a colon'
 
 \newtheorem{Theorem}{Theorem}
 
+\newtheorem{lemma}{lemma}
+
 \newtheorem{testing}{testing}
 
 
@@ -169,8 +171,24 @@ screw up
 ~~~~
 
 
+## embedded block with meta block
 
 
+\begin{lemma}
+\label{embedded theorem}
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+: this table is embedded into theorem \label{theorem table}
+\end{lemma}
 
 # test ref
 

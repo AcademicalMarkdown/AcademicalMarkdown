@@ -175,8 +175,31 @@ label: should not compile embedded
 
 =====
 
+## embedded block with meta block
 
+==== the
 
+=== tabl
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+---
+caption: this table is embedded into theorem
+label: theorem table
+
+===
+
+---
+theorem_type: lemma
+label: embedded theorem
+====
 
 # test ref
 
