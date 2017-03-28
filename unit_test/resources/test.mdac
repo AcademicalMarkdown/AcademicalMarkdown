@@ -164,7 +164,7 @@ label: embeded table
 
 ## embed file into code
 
-=== code
+===== code
 
 ==== table
 screw up
@@ -173,7 +173,7 @@ screw up
 ---
 label: should not compile embedded
 
-===
+=====
 
 
 
