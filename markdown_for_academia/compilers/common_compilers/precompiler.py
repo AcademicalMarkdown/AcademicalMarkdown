@@ -1,7 +1,8 @@
 import re
 
-from src.compilers.common_compilers.header_compiler import HeaderCompiler
-from src.helpers.constants import YAML_HEADER_REGEX
+from markdown_for_academia.compilers.common_compilers.header_compiler import \
+    HeaderCompiler
+from markdown_for_academia.helpers.constants import YAML_HEADER_REGEX
 
 
 def pre_compile(mdac_content: str) -> str:

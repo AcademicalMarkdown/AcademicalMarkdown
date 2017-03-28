@@ -1,13 +1,19 @@
-from src.compilers.common_compilers.precompiler import pre_compile
-from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
-from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
-from src.compilers.to_latex.main_latex_compiler import \
+from markdown_for_academia.compilers.common_compilers.precompiler import \
+    pre_compile
+from markdown_for_academia.compilers.to_latex.code_compiler_latex import \
+    CodeCompilerLatex
+from markdown_for_academia.compilers.to_latex.figure_compiler_latex import \
+    FigureCompilerLatex
+from markdown_for_academia.compilers.to_latex.main_latex_compiler import \
     compile_to_pandoc_for_latex
-from src.compilers.to_latex.refrence_compiler import compile_ref
-from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
-from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
-from src.registers.common_register import CommonRegister
-from src.registers.latex_register import LatexRegister
+from markdown_for_academia.compilers.to_latex.refrence_compiler import \
+    compile_ref
+from markdown_for_academia.compilers.to_latex.table_compiler_latex import \
+    TableCompilerLatex
+from markdown_for_academia.compilers.to_latex.theorem_compiler_latex import \
+    TheoremCompilerLatex
+from markdown_for_academia.registers.common_register import CommonRegister
+from markdown_for_academia.registers.latex_register import LatexRegister
 from unit_test.helpers.constants_for_test import *
 
 code_latex_compiler = CodeCompilerLatex()

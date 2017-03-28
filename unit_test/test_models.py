@@ -1,4 +1,4 @@
-from src.models import code_model, figure_model, \
+from markdown_for_academia.models import code_model, figure_model, \
     include_model, table_model, theorem_model
 from unit_test.helpers.constants_for_test import *
 from unit_test.helpers.functions_for_test import *

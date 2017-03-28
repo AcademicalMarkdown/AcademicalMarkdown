@@ -1,10 +1,15 @@
-from src.compilers.base_compiler import BaseCompiler
-from src.compilers.block_parser import BlockParser
-from src.compilers.to_latex.code_compiler_latex import CodeCompilerLatex
-from src.compilers.to_latex.figure_compiler_latex import FigureCompilerLatex
-from src.compilers.to_latex.include_compiler_latex import IncludeCompilerLatex
-from src.compilers.to_latex.table_compiler_latex import TableCompilerLatex
-from src.compilers.to_latex.theorem_compiler_latex import TheoremCompilerLatex
+from markdown_for_academia.compilers.base_compiler import BaseCompiler
+from markdown_for_academia.compilers.block_parser import BlockParser
+from markdown_for_academia.compilers.to_latex.code_compiler_latex import \
+    CodeCompilerLatex
+from markdown_for_academia.compilers.to_latex.figure_compiler_latex import \
+    FigureCompilerLatex
+from markdown_for_academia.compilers.to_latex.include_compiler_latex import \
+    IncludeCompilerLatex
+from markdown_for_academia.compilers.to_latex.table_compiler_latex import \
+    TableCompilerLatex
+from markdown_for_academia.compilers.to_latex.theorem_compiler_latex import \
+    TheoremCompilerLatex
 
 
 class BlockCompiler(BlockParser, BaseCompiler):

@@ -1,9 +1,9 @@
 import re
 
-from src.helpers.constants import ORIG_PAGE_REF_REGEX_FORMAT, \
+from markdown_for_academia.helpers.constants import ORIG_PAGE_REF_REGEX_FORMAT, \
     ORIG_REF_REGEX_FORMAT, \
     COMPILED_PAGE_REF_REGEX_FORMAT, COMPILED_REF_REGEX_FORMAT
-from src.registers.common_register import CommonRegister
+from markdown_for_academia.registers.common_register import CommonRegister
 
 
 def __gen_ref_sub_tuple__(label: str) -> (str, str):

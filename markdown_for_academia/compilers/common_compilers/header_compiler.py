@@ -1,8 +1,8 @@
 import yaml
 
-from src.compilers.base_compiler import BaseCompiler
-from src.helpers.constants import YAML_PARSE_ERROR_FORMAT
-from src.models.header_model import HeaderModel
+from markdown_for_academia.compilers.base_compiler import BaseCompiler
+from markdown_for_academia.helpers.constants import YAML_PARSE_ERROR_FORMAT
+from markdown_for_academia.models.header_model import HeaderModel
 
 
 class HeaderCompiler(HeaderModel, BaseCompiler):

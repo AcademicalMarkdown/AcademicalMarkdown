@@ -1,7 +1,7 @@
 import re
 
-from src.helpers.constants import ORIG_CONST_REGEX_FORMAT
-from src.registers.common_register import CommonRegister
+from markdown_for_academia.helpers.constants import ORIG_CONST_REGEX_FORMAT
+from markdown_for_academia.registers.common_register import CommonRegister
 
 
 def const_compile(document: str) -> str:

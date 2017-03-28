@@ -2,14 +2,16 @@ import re
 
 from typing import List
 
-from src.compilers.common_compilers.constants_compiler import const_compile
-from src.compilers.to_latex.block_compiler import \
+from markdown_for_academia.compilers.common_compilers.constants_compiler import \
+    const_compile
+from markdown_for_academia.compilers.to_latex.block_compiler import \
     BlockCompiler
-from src.compilers.to_latex.refrence_compiler import compile_ref
-from src.helpers.constants import MDAC_BLOCK_REGEX
-from src.helpers.general_function import unescape_block
-from src.registers.common_register import CommonRegister
-from src.registers.latex_register import LatexRegister
+from markdown_for_academia.compilers.to_latex.refrence_compiler import \
+    compile_ref
+from markdown_for_academia.helpers.constants import MDAC_BLOCK_REGEX
+from markdown_for_academia.helpers.general_function import unescape_block
+from markdown_for_academia.registers.common_register import CommonRegister
+from markdown_for_academia.registers.latex_register import LatexRegister
 
 
 def __invoke_compile__(compiler: BlockCompiler) -> str:

@@ -4,11 +4,12 @@ import csv
 from tabulate import tabulate
 from typing import List
 
-from src.compilers.base_compiler import BaseCompiler
-from src.helpers.constants import LATEX_TABLE_FORMAT_STR, CSV_DELIMINATOR, \
+from markdown_for_academia.compilers.base_compiler import BaseCompiler
+from markdown_for_academia.helpers.constants import LATEX_TABLE_FORMAT_STR, \
+    CSV_DELIMINATOR, \
     DECODE_ERROR_MESSAGE_FORMAT
-from src.models.table_model import TableModel
-from src.registers.common_register import CommonRegister
+from markdown_for_academia.models.table_model import TableModel
+from markdown_for_academia.registers.common_register import CommonRegister
 
 
 class TableCompilerLatex(TableModel, BaseCompiler):

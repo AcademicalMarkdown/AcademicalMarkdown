@@ -1,8 +1,8 @@
-from src.compilers.base_compiler import BaseCompiler
-from src.helpers.constants import LATEX_THEOREM_FORMAT_STR
-from src.models.theorem_model import TheoremModel
-from src.registers.common_register import CommonRegister
-from src.registers.latex_register import LatexRegister
+from markdown_for_academia.compilers.base_compiler import BaseCompiler
+from markdown_for_academia.helpers.constants import LATEX_THEOREM_FORMAT_STR
+from markdown_for_academia.models.theorem_model import TheoremModel
+from markdown_for_academia.registers.common_register import CommonRegister
+from markdown_for_academia.registers.latex_register import LatexRegister
 
 
 class TheoremCompilerLatex(TheoremModel, BaseCompiler):

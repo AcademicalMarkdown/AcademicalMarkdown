@@ -1,4 +1,4 @@
-import src.helpers.general_function as gf
+import markdown_for_academia.helpers.general_function as gf
 
 
 class TestUnescape:

@@ -1,4 +1,4 @@
-from src.models.base_model import BaseModel
+from markdown_for_academia.models.base_model import BaseModel
 
 
 class IncludeModel(BaseModel):
