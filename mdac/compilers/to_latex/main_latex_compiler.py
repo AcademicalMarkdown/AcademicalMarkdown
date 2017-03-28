@@ -22,18 +22,22 @@ def __invoke_compile__(compiler: BlockCompiler) -> str:
     :param compiler: a compiler that is loaded with data
     :return: the final string that is compiled
     """
-    compile_res = compiler.compile()
 
     if not compiler.use_raw_data:
-        # compile embedded block
-        embedded_res = main_compile(compile_res)
+        # compile the embedded blocks in content block
+        compiler.content_block = main_compile(compiler.content_block)
+        # compile the current block
+        compile_res = compiler.compile()
         # compile ref
-        compile_ref_res = compile_ref(embedded_res)
+        compile_ref_res = compile_ref(compile_res)
         # compile constants
         compile_cons_res = const_compile(compile_ref_res)
         # unescape the block
         final_res = unescape_block(compile_cons_res)
     else:
+        # compile the current block
+        compile_res = compiler.compile()
+
         final_res = compile_res
 
     return final_res
