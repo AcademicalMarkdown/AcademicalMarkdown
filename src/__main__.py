@@ -1,6 +1,7 @@
 import logging
 
 import pypandoc
+from fire import Fire
 from typing import Tuple, Union
 
 from src.compilers.common_compilers.precompiler import pre_compile
@@ -245,3 +246,7 @@ def main(input_file, output_file='', output_format='', extra_args=None):
 
     else:
         __compile_with_reg_data__(input_file)
+
+
+if __name__ == '__main__':
+    Fire(main)
