@@ -147,6 +147,37 @@ this is another great theorem
 ===
 
 
+# test embedded block
+
+## embed table file using include
+
+=== table
+
+==== include
+./unit_test/resources/table.mdac
+====
+
+---
+label: embeded table
+
+===
+
+## embed file into code
+
+=== code
+
+==== table
+screw up
+====
+
+---
+label: should not compile embedded
+
+===
+
+
+
+
 # test ref
 
 ## regular test

@@ -141,6 +141,37 @@ this is another great theorem
 \end{Theorem}
 
 
+# test embedded block
+
+## embed table file using include
+
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+
+:  \label{embeded table}
+
+## embed file into code
+
+
+~~~~{   label="should not compile embedded" }
+==== table
+screw up
+====
+~~~~
+
+
+
+
+
 # test ref
 
 ## regular test
