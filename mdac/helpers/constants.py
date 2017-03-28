@@ -66,7 +66,7 @@ MDAC_BLOCK_REGEX = re.compile(r"""
                     # repeat group 1, this means equal number of '=' with
                     # group 1. followed by number of spaces
                     # indicating the end of the group
-                    ^\1\ *
+                    ^\1\ *$
                     """, re.VERBOSE | re.MULTILINE | re.DOTALL)
 
 YAML_HEADER_REGEX = re.compile(r"\A---(.*?)^[-.]{3}", re.MULTILINE | re.DOTALL)
