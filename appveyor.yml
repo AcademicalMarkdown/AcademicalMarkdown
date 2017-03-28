@@ -34,7 +34,7 @@ test_script:
   - "pycodestyle . --show-source --show-pep8"
   - "codecov"
 
-script:
+build:
   - "python.exe freezer.py bdist_msi"
 
 artifacts:
