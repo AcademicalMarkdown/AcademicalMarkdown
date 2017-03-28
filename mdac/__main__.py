@@ -212,25 +212,25 @@ def __compile_with_reg_data__(mdac_file: str):
                           extra_args=config, default=default_config)
 
 
-def main(input_file, output_file='', output_format='', extra_args=None):
+def main(input_file, output='', to='', extra_args=None):
     """
     the main process
     :param input_file: the path of input mdac file
-    :param output_file: the output file full path
-    :param output_format: the output format of the file
+    :param output: the output file full path
+    :param to: the output format of the file
     :param extra_args: a list of extra arguments provided to pandoc
     """
-    if output_format:
+    if to:
         logging.warning('it is recommend to include command line arguments in'
                         'your mdac file meta')
 
         # get the file name if no file name is specified
-        if not output_file:
-            output_file = __get_output_filename__(input_file=input_file,
-                                                  config={},
-                                                  output_format=output_format)
+        if not output:
+            output = __get_output_filename__(input_file=input_file,
+                                             config={},
+                                             output_format=to)
 
-        compile_function = __get_compile_function__(output_format)
+        compile_function = __get_compile_function__(to)
 
         with open(input_file, 'r', encoding='utf-8') as f:
             input_content = f.read()
@@ -240,9 +240,9 @@ def main(input_file, output_file='', output_format='', extra_args=None):
         compile_res = compile_function(pre_compile_res)
 
         pypandoc.convert_text(source=compile_res,
-                              outputfile=output_file,
+                              outputfile=output,
                               format='md',
-                              to=output_format,
+                              to=to,
                               extra_args=extra_args)
 
     else:
