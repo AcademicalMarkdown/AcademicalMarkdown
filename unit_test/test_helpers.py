@@ -2,15 +2,6 @@ import src.helpers.general_function as gf
 
 
 class TestUnescape:
-    def test_yaml(self):
-        block = '\\%--- \\---%'
-        exp_res = '%--- ---%'
-        assert gf.unescape_block(block) == exp_res
-
-    def test_yaml_unescape(self):
-        block = r'\\%--- \\---%'
-        exp_res = '\\%--- \\---%'
-        assert gf.unescape_block(block) == exp_res
 
     def test_ref_ending(self):
         block = r'[@test\]\]]'

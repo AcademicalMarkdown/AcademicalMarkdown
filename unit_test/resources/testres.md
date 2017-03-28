@@ -163,9 +163,6 @@ another a great theorem
 
 # test escape
 
-%---
----%
-
 [@notfoundlabel]
 
 [@tremendous 2]
