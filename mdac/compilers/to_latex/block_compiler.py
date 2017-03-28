@@ -15,7 +15,7 @@ from mdac.compilers.to_latex.theorem_compiler_latex import \
 class BlockCompiler(BlockParser, BaseCompiler):
     def __init__(self):
         super().__init__()
-        self.compiler = BaseCompiler()
+        self.compiler = None
         self.compiler_dict = {}
         self.type_to_compiler_dict = {
             'code': CodeCompilerLatex(),
@@ -40,6 +40,11 @@ class BlockCompiler(BlockParser, BaseCompiler):
         a helper to compile method, to find the compiler correspond to current
         block_type
         """
+        # compiler is already found
+        if self.compiler:
+            return
+
+        # if compiler not found, go and found one
         try:
             # attempt to find the compiler
             self.compiler = self.type_to_compiler_dict[self.block_type]
