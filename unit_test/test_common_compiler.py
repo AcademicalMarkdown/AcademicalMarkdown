@@ -5,6 +5,7 @@ from src.compilers.common_compilers.header_compiler import HeaderCompiler
 from src.registers.common_register import CommonRegister
 from unit_test.helpers.constants_for_test import test_yaml_with_minus_ending, \
     test_yaml_with_output_conf
+from unit_test.helpers.functions_for_test import list_eq_unorder
 
 
 class TestHeaderCompiler:
@@ -49,7 +50,8 @@ abstract: |
         exp_output_conf = [{'format': 'latex', 'default': True},
                            {'format': 'HTML', 'default': True}]
         assert CommonRegister.get_constants_set() == exp_const
-        assert CommonRegister.get_output_configs() == exp_output_conf
+        assert list_eq_unorder(CommonRegister.get_output_configs(),
+                               exp_output_conf)
 
         exp_compil_res = '''
 ---
