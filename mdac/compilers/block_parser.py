@@ -19,10 +19,7 @@ class BlockParser(BlockModel):
         # see constant -> MDAC_BLOCK_REGEX for more info
         block_type = match_obj[1].strip().lower()
         content_block = match_obj[2].strip()
-        try:
-            meta_block = match_obj[3]
-        except IndexError:
-            meta_block = ''
+        meta_block = match_obj[3]
 
         # construct the object
         self.__construct__(block_type=block_type,
