@@ -36,6 +36,5 @@ build_script:
   - "python.exe freezer.py build_exe -s"
 
 artifacts:
-  - path: ".\\build"
-  - path: ".\\dist"
+  - path: ".\\build\\*"
 
