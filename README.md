@@ -1,4 +1,4 @@
-# ![](./logos/logo_light_128x97.1.jpg) Markdown for Academia   
+# ![](./logos/logo_light_128x97.1.jpg) [deprecated] Markdown for Academia   
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bp7dlp49da0yijad/branch/master?svg=true)](https://ci.appveyor.com/project/chantisnake/markdown-for-academia/branch/master)
 [![Build Status](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia.svg?branch=master)](https://travis-ci.org/MarkdownForAcademia/markdown_for_academia)
